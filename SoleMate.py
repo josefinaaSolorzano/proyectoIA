@@ -115,6 +115,16 @@ if input_img is not None:
 
                 st.success(label2)  # Muestra la etiqueta sin el número
 
+        with col3:
+            st.info("Recommendations")
+            if label in ["0 Air Forces", "1 Air Jordans", "2 Air Maxes", "3 Cleats", "4 Dunks"]:
+                st.write(f"Modelo identificado: {label}")
+                st.write(f"Confianza: {confidence_score * 100:.2f}%")
+                st.write("Recomendaciones de compra:")
+                st.write("- Producto 1")
+                st.write("- Producto 2")
+                st.write("- Producto 3")
+
             
         
 
