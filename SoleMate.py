@@ -82,10 +82,7 @@ recommendations = {
     """,
 }
 
-st.title("Recomendaciones de Zapatillas Nike")
-for product, description in recommendations.items():
-    st.subheader(product)
-    st.markdown(description)
+
 
 st.set_page_config(layout='wide')
 
@@ -123,3 +120,8 @@ if input_img is not None:
                 # Mostrar recomendación basada en la clase
                 recommendation = recommendations.get(label.strip(), "No hay recomendación disponible para esta clase.")
                 st.write(recommendation)
+
+st.title("Recomendaciones de Zapatillas Nike")
+for product, description in recommendations.items():
+    st.subheader(product)
+    st.markdown(description)
