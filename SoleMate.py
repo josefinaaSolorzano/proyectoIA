@@ -4,83 +4,88 @@ import numpy as np
 import streamlit as st
 #from openai import OpenAI
 import pandas as pd
+import requests
+from bs4 import BeautifulSoup
+
 
 def classify_fruit(img):
-
-
     # Disable scientific notation for clarity
     np.set_printoptions(suppress=True)
-
 
     # Load the model
     model = load_model("keras_model.h5", compile=False)
 
-
     # Load the labels
     class_names = open("labels.txt", "r").readlines()
 
-
     # Create the array of the right shape to feed into the keras model
-    # The 'length' or number of images you can put into the array is
-    # determined by the first position in the shape tuple, in this case 1
     data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
-
 
     # Replace this with the path to your image
     image = img.convert("RGB")
 
-
-    # resizing the image to be at least 224x224 and then cropping from the center
+    # Resizing the image to be at least 224x224 and then cropping from the center
     size = (224, 224)
     image = ImageOps.fit(image, size, Image.Resampling.LANCZOS)
 
-
-    # turn the image into a numpy array
+    # Turn the image into a numpy array
     image_array = np.asarray(image)
-
 
     # Normalize the image
     normalized_image_array = (image_array.astype(np.float32) / 127.5) - 1
 
-
     # Load the image into the array
     data[0] = normalized_image_array
 
-
-    # Predicts the model
+    # Predict the model
     prediction = model.predict(data)
     index = np.argmax(prediction)
     class_name = class_names[index]
     confidence_score = prediction[0][index]
 
-
-    #print prediction and confidence score
     print("Class:", class_name[2:], end="")
     print("Confidence Score:", confidence_score)
 
-
     return class_name, confidence_score
 
+def recommend_product(label):
+    # Define a mapping from labels to search queries for the Nike website
+    search_queries = {
+        "Air Force 1": "air-force-1",
+        "Air Jordan": "jordan",
+        "Air Max": "air-max",
+        "Cleats": "soccer-cleats",
+        "Dunks": "dunk"
+    }
 
-#def generate_recipe(label):
-    client = OpenAI(api_key="")
+    for key in search_queries:
+        if key in label:
+            query = search_queries[key]
+            break
+    else:
+        query = "sneakers"
 
-    response = client.Completion.create(
-        model="gpt-3.5-turbo-instruct",
-        temperature=0.5,
-        prompt= f"Sos un asistente experto en modelos de zapatillas Nike Air Forces, Air Jordans, Air Maxes, Cleats y Dunks. A partir del modelo {label} necesito que generes una breve descripcion del producto y sus principales caracteristicas: comodidad, talles, colores, para que se utiliza y perfil del usuario que compraria este producto.",
-        max_tokens=300,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0
-    )
+    url = f"https://www.nike.com/w?q={query}"
 
-    return response.choices[0].text
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
 
+    # Find the first product
+    product = soup.find('div', {'data-qa': 'product-card'})
+    if product:
+        product_name = product.find('div', {'data-qa': 'product-name'}).text
+        product_price = product.find('div', {'data-qa': 'product-price'}).text
+        product_link = product.find('a', {'data-qa': 'product-link'})['href']
 
+        return {
+            'name': product_name,
+            'price': product_price,
+            'link': f"https://www.nike.com{product_link}"
+        }
+    else:
+        return None
 
 st.set_page_config(layout='wide')
-
 
 st.title('SoleMate')
 st.subheader('Encontrá tu par perfecto', divider='red')
@@ -91,12 +96,9 @@ st.video(video_bytes, start_time=0)
 
 input_img = st.file_uploader("Ingresá la foto del modelo que buscas y conocé más con un solo click", type=['jpg', 'png', 'jpeg'])
 
-
-
 if input_img is not None:
     if st.button("Clasificar"):
-        
-        col1, col2, col3 = st.columns([1,1,1])
+        col1, col2, col3 = st.columns([1, 1, 1])
 
         with col1:
             st.info("Imagen cargada")
@@ -115,16 +117,11 @@ if input_img is not None:
 
                 st.success(label2)  # Muestra la etiqueta sin el número
 
-        with col3:
-            st.info("Recommendations")
-            if label in ["0 Air Forces", "1 Air Jordans", "2 Air Maxes", "3 Cleats", "4 Dunks"]:
-                st.write(f"Modelo identificado: {label}")
-                st.write(f"Confianza: {confidence_score * 100:.2f}%")
-                st.write("Recomendaciones de compra:")
-                st.write("- Producto 1")
-                st.write("- Producto 2")
-                st.write("- Producto 3")
-
-            
-        
-
+                # Recomendar un producto similar en Nike
+                product = recommend_product(label2)
+                if product:
+                    st.markdown(f"**{product['name']}**")
+                    st.markdown(f"Precio: {product['price']}")
+                    st.markdown(f"[Visita el producto en Nike]({product['link']})")
+                else:
+                    st.warning("No se encontraron productos similares en Nike.")
