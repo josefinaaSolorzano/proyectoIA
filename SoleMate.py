@@ -175,3 +175,12 @@ r = pdk.Deck(
 
 # Mostrar el mapa
 st.pydeck_chart(r)
+
+#Mostrar listado de tiendas a la izquierda del mapa
+st.header('Tiendas de Nike en la provincia seleccionada:')
+
+# Mostrar el listado de tiendas como contenedores
+for index, row in df_filtrado.iterrows():
+    st.markdown(f"*{row['Nombre']}*")
+    st.write(f"Dirección: {row['Dirección']}")
+    st.write("---")  # Agregar una línea divisoria entre cada tienda
