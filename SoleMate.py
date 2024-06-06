@@ -4,6 +4,7 @@ import numpy as np
 import streamlit as st
 #from openai import OpenAI
 import pandas as pd
+import pydeck as pdk
 
 def classify_fruit(img):
     # Disable scientific notation for clarity
@@ -121,3 +122,56 @@ if input_img is not None:
                 recommendation = recommendations.get(label.strip(), "No hay recomendación disponible para esta clase.")
                 st.write(recommendation)
 
+# Título de la aplicación
+st.title('Mapa de Tiendas Nike en Argentina')
+
+# Crear DataFrame de ejemplo (reemplazar con tus datos reales)
+data = {
+    'Nombre': ['NSO Abasto', 'NSO Alto Palermo', 'Factory Arcos', 'Factory Barracas', 'Factory Chacarita', 'Factory Rivadavia', 'Nike Avenida Santa Fe', 'NSO Unicenter', 'NSO Alto Avellaneda', 'Factory La Plata', 'Factory Soleil', 'Nike Alto Rosario', 'Nike Rosario', 'Nike Maxi Mendoza', 'Nike Tucumán', 'Nike Nuevocentro'],
+    'Dirección': ['Avenida Corrientes 3247, CABA', 'Arenales 3360, CABA', 'Paraguay 4979, CABA', 'California 2098, CABA', 'Avenida Corrientes 6433, CABA', 'Avenida Rivadavia 8961, CABA', 'Avenida Santa Fe 1681, CABA', 'Paraná 3745, Martínez', 'Gral. Güemes 897, Crucecita', 'Camino Parque Centenario y Calle 507, La Plata', 'Bernardo de Irigoyen 2647, San Isidro', 'Junín 501, Rosario', 'Córdoba 1260, Rosario', 'Avenida San Martin 1468, Mendoza', 'Mendoza 562, San Miguel de Tucumán', 'Duarte Quiros 1400, Córdoba'],
+    'Provincia': ['Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Santa Fe', 'Santa Fe', 'Mendoza', 'Tucumán', 'Córdoba'],
+    'Latitud': [-34.6037, -34.5882, -34.5803, -34.6471, -34.5933, -34.6355, -34.5955, -34.5081, -34.6767, -34.8841, -34.4909, -32.9274, -32.9457, -32.8866, -26.8280, -31.4119],
+    'Longitud': [-58.4103, -58.4098, -58.4272, -58.3773, -58.4496, -58.4903, -58.3914, -58.5266, -58.3665, -58.0039, -58.5903, -60.6694, -60.6402, -68.8390, -65.2050, -64.2053]
+}
+df = pd.DataFrame(data)
+
+# Convertir latitud y longitud a flotantes
+df['Latitud'] = df['Latitud'].astype(float)
+df['Longitud'] = df['Longitud'].astype(float)
+
+# Agregar un filtro de provincia
+provincias = df['Provincia'].unique().tolist()
+provincia_seleccionada = st.selectbox('Selecciona una provincia', provincias)
+
+# Filtrar el DataFrame según la provincia seleccionada
+df_filtrado = df[df['Provincia'] == provincia_seleccionada]
+
+
+# Configuración del mapa
+view_state = pdk.ViewState(latitude=df_filtrado['Latitud'].iloc[0], longitude=df_filtrado['Longitud'].iloc[0], zoom=10, bearing=0, pitch=0)
+
+# Crear capa de marcadores
+layer = pdk.Layer(
+    'ScatterplotLayer',
+    data=df_filtrado,
+    get_position='[Longitud, Latitud]',
+    get_radius=100,
+    get_fill_color=[255, 0, 0],
+    pickable=True,
+    auto_highlight=True
+)
+
+# Renderizar el mapa
+r = pdk.Deck(
+    layers=[layer],
+    initial_view_state=view_state,
+    tooltip={
+        "html": "<b>Nombre:</b> {Nombre} <br> <b>Dirección:</b> {Dirección} <br> <b>Provincia:</b> {Provincia}",
+        "style": {
+            "color": "white"
+        }
+    }
+)
+
+# Mostrar el mapa
+st.pydeck_chart(r)
