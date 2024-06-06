@@ -88,7 +88,7 @@ st.set_page_config(layout='wide')
 st.title('SoleMate')
 st.subheader('Encontrá tu par perfecto', divider='red')
 
-st.container(height=50, border=False)
+st.container(height=30, border=False)
 
 container = st.container(border=True)
 col1, col2 = st.columns([1,1])
@@ -100,7 +100,7 @@ with col2:
     st.write("Somos una app que te permite encontrar tu par ideal de la manera mas rapida y facil posible. Junto con Nike, diseñamos una app que te permite conocer sus modelos de una manera nunca antes vista. Que esperas para encontrar tu **SoleMate**")
 
 
-st.container(height=50, border=False)
+st.container(height=30, border=False)
 
 st.header("Cómo funciona?")
 
@@ -133,7 +133,7 @@ if input_img is not None:
                 st.write(recommendation)
 
 
-st.container(height=50, border=False)
+st.container(height=30, border=False)
 
 video_file = open('NikeComercial.mp4', 'rb')
 video_bytes = video_file.read()
@@ -203,7 +203,7 @@ for index, row in df_filtrado.iterrows():
     st.write("---")  # Agregar una línea divisoria entre cada tienda
 
 with st.sidebar:
-    messages = st.container(height=300)
+    messages = st.container(height=30)
     messages.chat_message("assistant").write(f"Hola! Podrías indicarme con qué podemos ayudarte hoy?") 
     if prompt := st.chat_input("Dejanos tu consulta!"):
         messages.chat_message("user").write(prompt) 
