@@ -4,9 +4,6 @@ import numpy as np
 import streamlit as st
 #from openai import OpenAI
 import pandas as pd
-import requests
-from bs4 import BeautifulSoup
-
 
 def classify_fruit(img):
     # Disable scientific notation for clarity
@@ -21,10 +18,10 @@ def classify_fruit(img):
     # Create the array of the right shape to feed into the keras model
     data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
-    # Replace this with the path to your image
+    # Convert the image to RGB
     image = img.convert("RGB")
 
-    # Resizing the image to be at least 224x224 and then cropping from the center
+    # Resize the image to 224x224 and crop from the center
     size = (224, 224)
     image = ImageOps.fit(image, size, Image.Resampling.LANCZOS)
 
@@ -37,53 +34,22 @@ def classify_fruit(img):
     # Load the image into the array
     data[0] = normalized_image_array
 
-    # Predict the model
+    # Predicts the model
     prediction = model.predict(data)
     index = np.argmax(prediction)
     class_name = class_names[index]
     confidence_score = prediction[0][index]
 
-    print("Class:", class_name[2:], end="")
-    print("Confidence Score:", confidence_score)
+    # Return class name and confidence score
+    return class_name.strip(), confidence_score
 
-    return class_name, confidence_score
-
-def recommend_product(label):
-    # Define a mapping from labels to search queries for the Nike website
-    search_queries = {
-        "Air Force 1": "air-force-1",
-        "Air Jordan": "jordan",
-        "Air Max": "air-max",
-        "Cleats": "soccer-cleats",
-        "Dunks": "dunk"
-    }
-
-    for key in search_queries:
-        if key in label:
-            query = search_queries[key]
-            break
-    else:
-        query = "sneakers"
-
-    url = f"https://www.nike.com/w?q={query}"
-
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, 'html.parser')
-
-    # Find the first product
-    product = soup.find('div', {'data-qa': 'product-card'})
-    if product:
-        product_name = product.find('div', {'data-qa': 'product-name'}).text
-        product_price = product.find('div', {'data-qa': 'product-price'}).text
-        product_link = product.find('a', {'data-qa': 'product-link'})['href']
-
-        return {
-            'name': product_name,
-            'price': product_price,
-            'link': f"https://www.nike.com{product_link}"
-        }
-    else:
-        return None
+# Dictionary of recommendations for each class
+recommendations = {
+    "0 Air Forces": "Compra esta zapatilla - Air Forces",
+    "1 Air Max": "Compra esta zapatilla - Air Max",
+    "2 Dunk": "Compra esta zapatilla - Dunk",
+    # Add more classes and recommendations as needed
+}
 
 st.set_page_config(layout='wide')
 
@@ -98,6 +64,7 @@ input_img = st.file_uploader("Ingresá la foto del modelo que buscas y conocé m
 
 if input_img is not None:
     if st.button("Clasificar"):
+        
         col1, col2, col3 = st.columns([1, 1, 1])
 
         with col1:
@@ -117,11 +84,6 @@ if input_img is not None:
 
                 st.success(label2)  # Muestra la etiqueta sin el número
 
-                # Recomendar un producto similar en Nike
-                product = recommend_product(label2)
-                if product:
-                    st.markdown(f"**{product['name']}**")
-                    st.markdown(f"Precio: {product['price']}")
-                    st.markdown(f"[Visita el producto en Nike]({product['link']})")
-                else:
-                    st.warning("No se encontraron productos similares en Nike.")
+                # Mostrar recomendación basada en la clase
+                recommendation = recommendations.get(label.strip(), "No hay recomendación disponible para esta clase.")
+                st.write(recommendation)
