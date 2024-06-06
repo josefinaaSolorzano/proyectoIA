@@ -121,7 +121,3 @@ if input_img is not None:
                 recommendation = recommendations.get(label.strip(), "No hay recomendación disponible para esta clase.")
                 st.write(recommendation)
 
-st.title("Recomendaciones de Zapatillas Nike")
-for product, description in recommendations.items():
-    st.subheader(product)
-    st.markdown(description)
