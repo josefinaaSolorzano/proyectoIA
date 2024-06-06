@@ -88,10 +88,6 @@ st.set_page_config(layout='wide')
 st.title('SoleMate')
 st.subheader('Encontrá tu par perfecto', divider='red')
 
-video_file = open('NikeComercial.mp4', 'rb')
-video_bytes = video_file.read()
-st.video(video_bytes, start_time=0)
-
 st.container(height=50, border=False)
 
 container = st.container(border=True)
@@ -135,6 +131,13 @@ if input_img is not None:
                 # Mostrar recomendación basada en la clase
                 recommendation = recommendations.get(label.strip(), "No hay recomendación disponible para esta clase.")
                 st.write(recommendation)
+
+
+st.container(height=50, border=False)
+
+video_file = open('NikeComercial.mp4', 'rb')
+video_bytes = video_file.read()
+st.video(video_bytes, start_time=0)                
 
 # Título de la aplicación
 st.title('Mapa de Tiendas Nike en Argentina')
@@ -214,4 +217,4 @@ st.sidebar.subheader('Regístrate para recibir ofertas exclusivas')
 email = st.sidebar.text_input('Correo electrónico')
 if st.sidebar.button('Registrarse'):
     # Guardar el correo electrónico en una base de datos o enviar a una lista de correo
-    st.sidebar.success('¡Gracias por registrarte!')    
+    st.sidebar.success('¡Gracias por registrarte!')
