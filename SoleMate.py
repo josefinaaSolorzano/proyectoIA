@@ -109,15 +109,15 @@ if input_img is not None:
             st.info("Your Result")
             image_file = Image.open(input_img)
             label, confidence_score = classify_fruit(image_file)
-            if label == "0 Air Forces":
+            if label == "Air Forces":
                 st.success("Tu par perfecto es Air Forces.")
-            elif label == "1 Air Jordans":
+            elif label == "Air Jordans":
                 st.success("Tu par perfecto es Air Jordans.")
-            elif label == "2 Air Maxes":
+            elif label == "Air Maxes":
                 st.success("Tu par perfecto es Air Maxes.")
-            elif label == "3 Cleats":
+            elif label == "Cleats":
                 st.success("Tu par perfecto es Cleats.")
-            elif label == "4 Dunks":
+            elif label == "Dunks":
                 st.success("Tu par perfecto es Dunks.")
             else:
                 st.error("No encontramos ningún match para vos 😢 Cargá otra foto para que encontremos tu par ideal! .")
