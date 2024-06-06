@@ -206,12 +206,9 @@ for index, row in df_filtrado.iterrows():
 
 with st.sidebar:
     messages = st.container(height=300)
-    messages.chat_message("assistant").write(f"Hola! Podrías indicarme con qué podemos ayudarte hoy?") 
-    if prompt := st.chat_input("Dejanos tu consulta!"):
+    if prompt := st.chat_input("Say something"):
         messages.chat_message("user").write(prompt)
-        messages.chat_message("assistant").write(f"Gracias por tu consulta! Un asesor se estará contactando con vos en breve :)")
-
-
+        messages.chat_message("assistant").write(f"Echo: {prompt}")
 
 
 #with st.sidebar:
