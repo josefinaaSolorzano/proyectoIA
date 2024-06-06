@@ -121,13 +121,13 @@ if input_img is not None:
             else:
                 st.error("No encontramos ningún match para vos 😢 Cargá otra foto para que encontremos tu par ideal! .")
 
-        #with col3:
-         #   st.info("Recommendations")
-          #  if label in ["0 Air Forces", "1 Air Jordans", "2 Air Maxes", "3 Cleats", "4 Dunks"]:
-           #     st.write(f"Modelo identificado: {label}")
-            #    st.write(f"Confianza: {confidence_score * 100:.2f}%")
-             #   st.write("Recomendaciones de compra:")
-              #  st.write("- Producto 1")
-               # st.write("- Producto 2")
-                #st.write("- Producto 3")
+        with col3:
+            st.info("Recommendations")
+            if label in ["0 Air Forces", "1 Air Jordans", "2 Air Maxes", "3 Cleats", "4 Dunks"]:
+                st.write(f"Modelo identificado: {label}")
+                st.write(f"Confianza: {confidence_score * 100:.2f}%")
+                st.write("Recomendaciones de compra:")
+                st.write("- Producto 1")
+                st.write("- Producto 2")
+                st.write("- Producto 3")
 
