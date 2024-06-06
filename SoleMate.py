@@ -92,10 +92,10 @@ st.video(video_bytes, start_time=0)
 
 input_img = st.file_uploader("Ingresá la foto del modelo que buscas y conocé más con un solo click", type=['jpg', 'png', 'jpeg'])
 
-def classify_fruit(image_file):
+#def classify_fruit(image_file):
     # Aquí deberías agregar la lógica para clasificar la imagen
     # Por ahora, simplemente devolvemos un valor de prueba
-    return "0 Air Forces", 0.85
+   # return "0 Air Forces", 0.85
 
 if input_img is not None:
     if st.button("Classify"):
