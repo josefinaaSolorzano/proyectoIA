@@ -83,8 +83,6 @@ recommendations = {
     """,
 }
 
-
-
 st.set_page_config(layout='wide')
 
 st.title('SoleMate')
@@ -104,6 +102,11 @@ with col1:
 with col2:
     st.header("¿Qué es SoleMate?")
     st.write("Somos una app que te permite encontrar tu par ideal de la manera mas rapida y facil posible. Junto con Nike, diseñamos una app que te permite conocer sus modelos de una manera nunca antes vista. Que esperas para encontrar tu **SoleMate**")
+
+
+st.container(height=50, border=False)
+
+st.header("Cómo funciona?")
 
 input_img = st.file_uploader("Ingresá la foto del modelo que buscas y conocé más con un solo click", type=['jpg', 'png', 'jpeg'])
 
@@ -195,3 +198,20 @@ for index, row in df_filtrado.iterrows():
     st.markdown(f"*{row['Nombre']}*")
     st.write(f"Dirección: {row['Dirección']}")
     st.write("---")  # Agregar una línea divisoria entre cada tienda
+
+with st.sidebar:
+    messages = st.container(height=300)
+    messages.chat_message("assistant").write(f"Hola! Podrías indicarme con qué podemos ayudarte hoy?") 
+    if prompt := st.chat_input("Dejanos tu consulta!"):
+        messages.chat_message("user").write(prompt) 
+        messages.chat_message("assistant").write(f"Gracias por tu consulta! Un asesor se estará contactando con vos en breve :)") 
+
+with st.sidebar:
+    st.container(height=30, border=False)
+
+
+st.sidebar.subheader('Regístrate para recibir ofertas exclusivas')
+email = st.sidebar.text_input('Correo electrónico')
+if st.sidebar.button('Registrarse'):
+    # Guardar el correo electrónico en una base de datos o enviar a una lista de correo
+    st.sidebar.success('¡Gracias por registrarte!')    
