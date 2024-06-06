@@ -13,11 +13,11 @@ def classify_fruit(img):
 
 
     # Load the model
-    model = load_model("keras_model.h5", compile=False)
+    model = load_model("C:\Users\DIEGO\Documents\AaJOSE\proyectoIA 2\proyectoIA\keras_model.h5", compile=False)
 
 
     # Load the labels
-    class_names = open("labels.txt", "r").readlines()
+    class_names = open("C:\Users\DIEGO\Documents\AaJOSE\proyectoIA 2\proyectoIA\labels.txt", "r").readlines()
 
 
     # Create the array of the right shape to feed into the keras model
