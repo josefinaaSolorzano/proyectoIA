@@ -2,10 +2,7 @@
 from PIL import Image, ImageOps
 import numpy as np
 import streamlit as st
-import os
 
-#from tensorflow.keras.layers import DepthwiseConv2D
-import tensorflow as tf
 
 st.markdown(
         """
@@ -26,12 +23,11 @@ st.markdown(
     )
 
 
-st.title('_¿Ya tenes tu par?_')
-st.subheader('_Hacé click en los modelos para encontrar tu SoleMate_', divider='red')
+st.title('¿Ya tenes tu par?')
+st.subheader('Hacé click en los modelos para encontrar tu SoleMate', divider='red')
 
 
 # Definir una función para mostrar el contenido de cada contenedor
-import streamlit as st
 
 # Definir una función para mostrar el contenido con imagen y texto al costado
 def mostrar_contenido(titulo, imagen_path, enlace, texto):
@@ -48,6 +44,11 @@ def mostrar_contenido(titulo, imagen_path, enlace, texto):
         st.markdown(texto)
         if st.button("Haz clic aquí para ir a la página", key=f"button_{titulo}", type="primary"):
             st.markdown(f'<a href="{enlace}" target="_blank">Enlace externo</a>', unsafe_allow_html=True)
+     
+
+
+            
+
 
 # Crear los contenedores y mostrar el contenido con imagen y texto al costado
 with st.container(border=True):
@@ -57,6 +58,7 @@ with st.container(border=True):
         "https://www.nike.com.ar/air%201%20force?_q=air%201%20force&map=ft",
         "Las Air Forces son un modelo icónico de zapatillas Nike conocidas por su diseño versátil y durabilidad."
     )
+    
 
 with st.container(border=True):
     mostrar_contenido(
@@ -76,7 +78,7 @@ with st.container(border=True):
 
 with st.container(border=True):
     mostrar_contenido(
-        "Cleats",
+        "Cleads",
         "cleads.jpeg",
         "https://www.nike.com.ar/air%201%20force?_q=air%201%20force&map=ft",
         "Las Air Forces son un modelo icónico de zapatillas Nike conocidas por su diseño versátil y durabilidad."
@@ -90,8 +92,21 @@ with st.container(border=True):
         "Las Air Forces son un modelo icónico de zapatillas Nike conocidas por su diseño versátil y durabilidad."
     )
 
-
-
+# Crear un contenedor dentro de la barra lateral
+with st.sidebar:
+    container = st.container()
+    with container:
+        st.header("Formulario de Contacto")
+        st.write("Dejanos tu consulta y un asesor se pondrá en contacto contigo.")
+        
+        # Campos del formulario
+        nombre = st.text_input("Nombre")
+        email = st.text_input("Correo Electrónico")
+        mensaje = st.text_area("Mensaje")
+        
+        # Botón de envío
+        if st.button("Enviar"):
+            st.success("¡Gracias por tu mensaje! Un asesor se pondrá en contacto contigo pronto.")
    
 #CODIGO DE JOSE
 
@@ -116,4 +131,3 @@ with st.container(border=True):
    #st.image("dunkstest.jpg")
    #if st.button("Dunks", type="primary"):
     #st.write('<a href="https://www.nike.com.ar/dunks?_q=dunks&map=ft&page=2" target="_blank">Haz clic aquí para ir a la página</a>', unsafe_allow_html=True)
-   
