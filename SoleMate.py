@@ -98,7 +98,7 @@ input_img = st.file_uploader("Ingresá la foto del modelo que buscas y conocé m
 if input_img is not None:
     if st.button("Clasificar"):
         
-        col1, col2, col3 = st.columns([1, 1, 1])
+        col1, col2 = st.columns([1 , 2])
 
         with col1:
             st.info("Imagen cargada")
