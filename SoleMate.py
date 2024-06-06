@@ -4,7 +4,6 @@ import numpy as np
 import streamlit as st
 from openai import OpenAI
 import pandas as pd
-import os
 
 def classify_fruit(img):
 
@@ -109,15 +108,15 @@ if input_img is not None:
             st.info("Your Result")
             image_file = Image.open(input_img)
             label, confidence_score = classify_fruit(image_file)
-            if label == "Air Forces":
+            if label == "0 Air Forces":
                 st.success("Tu par perfecto es Air Forces.")
-            elif label == "Air Jordans":
+            elif label == "1 Air Jordans":
                 st.success("Tu par perfecto es Air Jordans.")
-            elif label == "Air Maxes":
+            elif label == "2 Air Maxes":
                 st.success("Tu par perfecto es Air Maxes.")
-            elif label == "Cleats":
+            elif label == "3 Cleats":
                 st.success("Tu par perfecto es Cleats.")
-            elif label == "Dunks":
+            elif label == "4 Dunks":
                 st.success("Tu par perfecto es Dunks.")
             else:
                 st.error("No encontramos ningún match para vos 😢 Cargá otra foto para que encontremos tu par ideal! .")
