@@ -8,6 +8,11 @@ import pandas as pd
 import os
 import streamlit as st
 
+try:
+    import openpyxl
+except ImportError:
+    st.error("Falta la dependencia 'openpyxl'. Ejecuta 'pip install openpyxl' para instalarla.")
+
 # Get the absolute path to the directory containing the script
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
