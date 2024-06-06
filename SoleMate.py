@@ -102,8 +102,8 @@ with col1:
     st.image('4KDr.gif', use_column_width=True)
 
 with col2:
-    st.title("¿Qué es SoleMate?")
-    st.write("SoleMate es una app que te permite encontrar tu par ideal de la manera mas rapida y facil posible. Junto con Nike, diseñamos una app que te permite conocer sus modelos de una manera nunca antes vista. Que esperas para encontrar tu **SoleMate**")
+    st.header("¿Qué es SoleMate?")
+    st.write("Somos una app que te permite encontrar tu par ideal de la manera mas rapida y facil posible. Junto con Nike, diseñamos una app que te permite conocer sus modelos de una manera nunca antes vista. Que esperas para encontrar tu **SoleMate**")
 
 input_img = st.file_uploader("Ingresá la foto del modelo que buscas y conocé más con un solo click", type=['jpg', 'png', 'jpeg'])
 
