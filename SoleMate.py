@@ -13,11 +13,11 @@ def classify_fruit(img):
 
 
     # Load the model
-    model = load_model("C:\Users\DIEGO\Documents\AaJOSE\proyectoIA 2\proyectoIA\keras_model.h5", compile=False)
+    model = load_model("keras_model.h5", compile=False)
 
 
     # Load the labels
-    class_names = open("C:\Users\DIEGO\Documents\AaJOSE\proyectoIA 2\proyectoIA\labels.txt", "r").readlines()
+    class_names = open("labels.txt", "r").readlines()
 
 
     # Create the array of the right shape to feed into the keras model
@@ -94,39 +94,27 @@ input_img = st.file_uploader("Ingresá la foto del modelo que buscas y conocé m
 
 
 if input_img is not None:
-    if st.button("Classify"):
-        col1, col2, col3 = st.columns([1, 1, 1])
+    if st.button("Clasificar"):
+        
+        col1, col2, col3 = st.columns([1,1,1])
 
         with col1:
-            st.info("Your uploaded Image")
+            st.info("Imagen cargada")
             st.image(input_img, use_column_width=True)
 
         with col2:
-            st.info("Your Result")
+            st.info("Resultado")
             image_file = Image.open(input_img)
-            label, confidence_score = classify_fruit(image_file)
-            if label == "0 Air Forces":
-                st.success("Tu par perfecto es Air Forces.")
-            elif label == "1 Air Jordans":
-                st.success("Tu par perfecto es Air Jordans.")
-            elif label == "2 Air Maxes":
-                st.success("Tu par perfecto es Air Maxes.")
-            elif label == "3 Cleats":
-                st.success("Tu par perfecto es Cleats.")
-            elif label == "4 Dunks":
-                st.success("Tu par perfecto es Dunks.")
-            else:
-                st.error("No encontramos ningún match para vos 😢 Cargá otra foto para que encontremos tu par ideal! .")
 
-        with col3:
-            st.info("Recommendations")
-            if label in ["0 Air Forces", "1 Air Jordans", "2 Air Maxes", "3 Cleats", "4 Dunks"]:
-                st.write(f"Modelo identificado: {label}")
-                st.write(f"Confianza: {confidence_score * 100:.2f}%")
-                st.write("Recomendaciones de compra:")
-                st.write("- Producto 1")
-                st.write("- Producto 2")
-                st.write("- Producto 3")
+            with st.spinner('Analizando imagen...'):
+                label, confidence_score = classify_fruit(image_file)
 
+                # Extraer el nombre de la etiqueta sin el número
+                label_description = label.split(maxsplit=1)[1]  # Divide la etiqueta por el primer espacio y toma el segundo elemento
+                label2 = label_description  # Guarda la descripción en label2
 
+                st.success(label2)  # Muestra la etiqueta sin el número
+
+            
+        
 
