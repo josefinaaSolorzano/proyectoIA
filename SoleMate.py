@@ -2,7 +2,7 @@ from keras.models import load_model  # TensorFlow is required for Keras to work
 from PIL import Image, ImageOps  # Install pillow instead of PIL
 import numpy as np
 import streamlit as st
-from openai import OpenAI
+#from openai import OpenAI
 import pandas as pd
 
 def classify_fruit(img):
