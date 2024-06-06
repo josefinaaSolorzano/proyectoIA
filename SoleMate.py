@@ -202,14 +202,26 @@ for index, row in df_filtrado.iterrows():
     st.write(f"Dirección: {row['Dirección']}")
     st.write("---")  # Agregar una línea divisoria entre cada tienda
 
+
+
 with st.sidebar:
-    messages = st.container(height=30)
+    messages = st.container(height=300)
+    messages.chat_message("assistant").write(f"Hola! Podrías indicarme con qué podemos ayudarte hoy?") 
+    if prompt := st.chat_input("Dejanos tu consulta!"):
+        messages.chat_message("user").write(prompt)
+        messages.chat_message("assistant").write(f"Gracias por tu consulta! Un asesor se estará contactando con vos en breve :)")
+
+
+
+
+#with st.sidebar:
+    messages = st.container(height=300)
     messages.chat_message("assistant").write(f"Hola! Podrías indicarme con qué podemos ayudarte hoy?") 
     if prompt := st.chat_input("Dejanos tu consulta!"):
         messages.chat_message("user").write(prompt) 
         messages.chat_message("assistant").write(f"Gracias por tu consulta! Un asesor se estará contactando con vos en breve :)") 
 
-with st.sidebar:
+#with st.sidebar:
     st.container(height=30, border=False)
 
 
