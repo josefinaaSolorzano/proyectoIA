@@ -114,15 +114,16 @@ st.header("Cómo funciona?")
 input_img = st.file_uploader("Ingresá la foto del modelo que buscas y conocé más con un solo click", type=['jpg', 'png', 'jpeg'])
 
 if input_img is not None:
-    if st.button("Clasificar"):
+    if st.button('Clasificar'):
+     st.toast('Just do it!', icon='👟')
         
-        col1, col2 = st.columns([1 , 2])
+    col1, col2 = st.columns([1 , 2])
 
-        with col1:
+    with col1:
             st.info("Imagen cargada")
             st.image(input_img, use_column_width=True)
 
-        with col2:
+    with col2:
             st.info("Resultado")
             image_file = Image.open(input_img)
 
