@@ -211,4 +211,10 @@ for index, row in df_filtrado.iterrows():
     st.write("---")  # Agregar una línea divisoria entre cada tienda
 
 
+st.sidebar.subheader('Regístrate para recibir ofertas exclusivas')
+email = st.sidebar.text_input('Correo electrónico')
+if st.sidebar.button('Registrarse'):
+    # Guardar el correo electrónico en una base de datos o enviar a una lista de correo
+    st.sidebar.success('¡Gracias por registrarte!')
+
 
