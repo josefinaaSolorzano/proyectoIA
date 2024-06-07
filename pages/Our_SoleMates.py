@@ -110,26 +110,3 @@ with st.sidebar:
         if st.button("Enviar"):
             st.success("¡Gracias por tu mensaje! Un asesor se pondrá en contacto contigo pronto.")
    
-#CODIGO DE JOSE
-
-#col1, col2, col3, col4 = st.columns(4)
-
-#with col1:
-   #st.image("airfORces.jpg")
-   #if st.button("Air Forces", type="primary"):
-    #st.write('<a href="https://www.nike.com.ar/air%201%20force?_q=air%201%20force&map=ft" target="_blank">Haz clic aquí para ir a la página</a>', unsafe_allow_html=True)
-   
-#with col2:
-   #st.image("airMaxestest.jpg")
-   #if st.button("Air Maxes", type="primary"):
-    #st.write('<a href="https://www.nike.com.ar/air%20max?_q=air%20max&map=ft" target="_blank">Haz clic aquí para ir a la página</a>', unsafe_allow_html=True)
-
-#with col3:
-   #st.image("jordan1.jpg")
-   #if st.button("Jordans", type="primary"):
-    #st.write('<a href="https://www.nike.com.ar/jordan?_q=jordan&map=ft&page=2" target="_blank">Haz clic aquí para ir a la página</a>', unsafe_allow_html=True)
-
-#with col4:
-   #st.image("dunkstest.jpg")
-   #if st.button("Dunks", type="primary"):
-    #st.write('<a href="https://www.nike.com.ar/dunks?_q=dunks&map=ft&page=2" target="_blank">Haz clic aquí para ir a la página</a>', unsafe_allow_html=True)

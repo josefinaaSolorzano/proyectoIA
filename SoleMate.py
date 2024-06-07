@@ -2,7 +2,6 @@ from keras.models import load_model  # TensorFlow is required for Keras to work
 from PIL import Image, ImageOps  # Install pillow instead of PIL
 import numpy as np
 import streamlit as st
-#from openai import OpenAI
 import pandas as pd
 import pydeck as pdk
 
@@ -90,7 +89,6 @@ recommendations = {
     """,
 }
 
-#st.set_page_config(layout='wide')
 
 st.title('SoleMate')
 st.subheader('Encontrá tu par perfecto', divider='red')
@@ -124,7 +122,7 @@ if input_img is not None:
             st.image(input_img, use_column_width=True)
 
     with col2:
-            st.info("Resultado")
+            st.info("Tu par ideal es...")
             image_file = Image.open(input_img)
 
             with st.spinner('Analizando imagen...'):
