@@ -6,6 +6,13 @@ import streamlit as st
 import pandas as pd
 import pydeck as pdk
 
+
+st.set_page_config(
+    page_title="SoleMate",
+    page_icon="logoNike.ico",  # Asegúrate de que la ruta al archivo de imagen sea correcta
+    layout="wide"
+)
+
 def classify_fruit(img):
     # Disable scientific notation for clarity
     np.set_printoptions(suppress=True)
