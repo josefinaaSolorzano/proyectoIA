@@ -56,7 +56,7 @@ with st.container(border=True):
         "Air Forces",
         "airfORces.jpg",
         "https://www.nike.com.ar/air%201%20force?_q=air%201%20force&map=ft",
-        "Las Air Forces son un modelo icónico de zapatillas Nike conocidas por su diseño versátil y durabilidad."
+        "Las Nike Air Force 1 son un ícono de la moda urbana desde su lanzamiento en 1982. Originalmente diseñadas como zapatillas de baloncesto, han evolucionado para convertirse en una pieza esencial del streetwear."
     )
     
 
@@ -65,7 +65,7 @@ with st.container(border=True):
         "Air Maxes",
         "airMaxestest.jpg",
         "https://www.nike.com.ar/air%20max?_q=air%20max&map=ft",
-        "Las Air Maxes son conocidas por su estilo y comodidad, ideales para el uso diario."
+        "Las Nike Air Max son famosas por su unidad de aire visible en la suela, introducida por primera vez en 1987. Han evolucionado con diferentes modelos y tecnologías a lo largo de los años."
     )
 
 with st.container(border=True):
@@ -73,15 +73,15 @@ with st.container(border=True):
         "Jordans",
         "jordan1.jpg",
         "https://www.nike.com.ar/air%201%20force?_q=air%201%20force&map=ft",
-        "Las Air Forces son un modelo icónico de zapatillas Nike conocidas por su diseño versátil y durabilidad."
+        "Las Air Jordans son una línea de zapatillas creada en colaboración con el legendario jugador de baloncesto Michael Jordan. Cada modelo tiene un diseño único y una historia detrás."
     )
 
 with st.container(border=True):
     mostrar_contenido(
-        "Cleads",
+        "Cleats",
         "cleads.jpeg",
         "https://www.nike.com.ar/air%201%20force?_q=air%201%20force&map=ft",
-        "Las Air Forces son un modelo icónico de zapatillas Nike conocidas por su diseño versátil y durabilidad."
+        "Las Nike Cleats están diseñadas para ofrecer el mejor rendimiento en deportes como el fútbol, béisbol y fútbol americano. Son conocidas por su tracción y durabilidad en terrenos específicos."
     )
 
 with st.container(border=True):
@@ -89,7 +89,7 @@ with st.container(border=True):
         "Dunks",
         "dunkstest.jpg",
         "https://www.nike.com.ar/air%201%20force?_q=air%201%20force&map=ft",
-        "Las Air Forces son un modelo icónico de zapatillas Nike conocidas por su diseño versátil y durabilidad."
+        "Las Nike Dunks nacieron en los años 80 como zapatillas de baloncesto, pero rápidamente se convirtieron en un ícono del skateboard y la moda urbana."
     )
 
 # Crear un contenedor dentro de la barra lateral
