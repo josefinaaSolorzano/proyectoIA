@@ -73,7 +73,7 @@ with st.container(border=True):
         "Las Air Jordans son una línea de zapatillas creada en colaboración con el legendario jugador de baloncesto Michael Jordan. Cada modelo tiene un diseño único y una historia detrás."
     )
 
-with st.container(border=True):
+#with st.container(border=True):
     mostrar_contenido(
         "Cleats",
         "Cleats.jpg",
