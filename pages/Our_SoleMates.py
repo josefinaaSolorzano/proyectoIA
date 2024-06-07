@@ -73,10 +73,10 @@ with st.container(border=True):
         "Las Air Jordans son una línea de zapatillas creada en colaboración con el legendario jugador de baloncesto Michael Jordan. Cada modelo tiene un diseño único y una historia detrás."
     )
 
-#with st.container(border=True):
+with st.container(border=True):
     mostrar_contenido(
         "Cleats",
-        "Cleats.jpg",
+        "Cleats2.jpg",
         "https://www.nike.com.ar/nike/hombre/calzado/botines?map=category-1,category-2,category-3,tipo-de-producto",
         "Las Nike Cleats están diseñadas para ofrecer el mejor rendimiento en deportes como el fútbol, béisbol y fútbol americano. Son conocidas por su tracción y durabilidad en terrenos específicos."
     )
