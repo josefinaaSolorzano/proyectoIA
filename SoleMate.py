@@ -211,6 +211,9 @@ for index, row in df_filtrado.iterrows():
     st.write("---")  # Agregar una línea divisoria entre cada tienda
 
 
+with st.sidebar:
+    st.container(height=20, border=False)
+
 st.sidebar.subheader('Regístrate para recibir ofertas exclusivas')
 email = st.sidebar.text_input('Correo electrónico')
 if st.sidebar.button('Registrarse'):
