@@ -47,9 +47,6 @@ def mostrar_contenido(titulo, imagen_path, enlace, texto):
      
 
 
-            
-
-
 # Crear los contenedores y mostrar el contenido con imagen y texto al costado
 with st.container(border=True):
     mostrar_contenido(
