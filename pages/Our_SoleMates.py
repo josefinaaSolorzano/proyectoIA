@@ -72,15 +72,15 @@ with st.container(border=True):
     mostrar_contenido(
         "Jordans",
         "jordan1.jpg",
-        "https://www.nike.com.ar/air%201%20force?_q=air%201%20force&map=ft",
+        "https://www.nike.com.ar/nike/air-jordan-1?map=category-1,icono",
         "Las Air Jordans son una línea de zapatillas creada en colaboración con el legendario jugador de baloncesto Michael Jordan. Cada modelo tiene un diseño único y una historia detrás."
     )
 
 with st.container(border=True):
     mostrar_contenido(
         "Cleats",
-        "cleads.jpeg",
-        "https://www.nike.com.ar/air%201%20force?_q=air%201%20force&map=ft",
+        "cleats.jpg",
+        "https://www.nike.com.ar/nike/hombre/calzado/botines?map=category-1,category-2,category-3,tipo-de-producto",
         "Las Nike Cleats están diseñadas para ofrecer el mejor rendimiento en deportes como el fútbol, béisbol y fútbol americano. Son conocidas por su tracción y durabilidad en terrenos específicos."
     )
 
@@ -88,7 +88,7 @@ with st.container(border=True):
     mostrar_contenido(
         "Dunks",
         "dunkstest.jpg",
-        "https://www.nike.com.ar/air%201%20force?_q=air%201%20force&map=ft",
+        "https://www.nike.com.ar/nike/hombre/calzado/dunk?map=category-1,category-2,category-3,icono",
         "Las Nike Dunks nacieron en los años 80 como zapatillas de baloncesto, pero rápidamente se convirtieron en un ícono del skateboard y la moda urbana."
     )
 
