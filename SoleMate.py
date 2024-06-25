@@ -112,15 +112,15 @@ container = st.container(border=True)
 with container:
     st.markdown("Cómo funciona?")
     st.markdown("Paso 1: Cargá o sacá una del modelo de zapatillas que estas buscando o uno similiar")
-    st.markdown("Paso 3: Hacé click en el botón 'Just do it!' y podrás encontrar recomendaciones sobre lo que buscas")
-    st.markdown("Paso 3: Hacé click en el botón 'Just do it!' y podrás encontrar recomendaciones sobre lo que buscas")
+    st.markdown("Paso 2: Hacé click en el botón 'Just do it!' y podrás encontrar recomendaciones sobre lo que buscas")
+    
 
 
 input_img = st.file_uploader("Ingresá la foto del modelo que buscas y conocé más con un solo click", type=['jpg', 'png', 'jpeg'])
+
 picture = st.camera_input("Sacá tu foto acá!")
 
-if picture:
-    st.image(picture)
+
 
 if input_img is not None:
     if st.button('Just do it!'):
@@ -131,13 +131,16 @@ if input_img is not None:
     with col1:
             st.info("Imagen cargada")
             st.image(input_img, use_column_width=True)
+            st.image(picture, use_column_width=True)
 
     with col2:
             st.info("Tu par ideal es...")
             image_file = Image.open(input_img)
+            image_file = Image.open(picture)
 
             with st.spinner('Analizando imagen...'):
                 label, confidence_score = classify_fruit(image_file)
+                label, confidence_score = classify_fruit(picture)
 
                 # Extraer el nombre de la etiqueta sin el número
                 label_description = label.split(maxsplit=1)[1]  # Divide la etiqueta por el primer espacio y toma el segundo elemento
