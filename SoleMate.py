@@ -108,16 +108,22 @@ with col2:
 st.container(height=30, border=False)
 
 
-st.header("Cómo funciona?")
-
 container = st.container(border=True)
-container.write("Ingresá la foto del modelo que buscas y conocé más con un solo click")
+with container:
+    st.markdown("Cómo funciona?")
+    st.markdown("Paso 1: Cargá o sacá una del modelo de zapatillas que estas buscando o uno similiar")
+    st.markdown("Paso 3: Hacé click en el botón 'Just do it!' y podrás encontrar recomendaciones sobre lo que buscas")
+    st.markdown("Paso 3: Hacé click en el botón 'Just do it!' y podrás encontrar recomendaciones sobre lo que buscas")
 
 
-input_img = st.file_uploader("Ingresá la foto del modelo que buscas y conocé más con un solo click", type=['jpg', 'png', 'jpeg'])
+input_img = st.file_uploader(type=['jpg', 'png', 'jpeg'])
+picture = st.camera_input("Sacá tu foto acá!")
+
+if picture:
+    st.image(picture)
 
 if input_img is not None:
-    if st.button('Clasificar'):
+    if st.button('Just do it!'):
      st.toast('Just do it!', icon='👟')
         
     col1, col2 = st.columns([1 , 2])
