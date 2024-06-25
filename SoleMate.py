@@ -137,8 +137,9 @@ if input_img is not None:
                 # Mostrar recomendación basada en la clase
                 recommendation = recommendations.get(label.strip(), "No hay recomendación disponible para esta clase.")
                 st.write(recommendation)
+                st.page_link("pages\Our_SoleMates.py", label="Page 1", icon="1️⃣")
 
-#st.page_link("pages/Our_SoleMates.py")
+
 
 st.container(height=30, border=False)
 

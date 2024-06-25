@@ -94,13 +94,6 @@ with st.container(border=True):
         "Las Nike Dunks nacieron en los años 80 como zapatillas de baloncesto, pero rápidamente se convirtieron en un ícono del skateboard y la moda urbana."
     )
 
-# Crear un contenedor dentro de la barra lateral
-with st.sidebar:
-    messages = st.container(height=300)
-    if prompt := st.chat_input("Say something"):
-        messages.chat_message("user").write(prompt)
-        messages.chat_message("assistant").write(f"Echo: {prompt}")
-
 
 with st.sidebar:
     st.container(height=30, border=False)
