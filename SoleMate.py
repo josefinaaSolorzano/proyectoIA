@@ -23,12 +23,26 @@ st.markdown(
         background-color: black;
         color: white;
     }
+    .stSidebar {
+        background-color: black;
+    }
+    .css-1lcbmhc, .css-17lntkn, .css-1adrfps, .css-1oyv4s9 {
+        background-color: black;
+        color: white;
+    }
     h1, h2, h3, h4, h5, h6, p, div, span, .stButton>button {
         color: white;
     }
     .stButton>button {
         background-color: #333333;
         border: none;
+    }
+    .stRadio>label, .stSelectbox>label, .stTextInput>label {
+        color: white;
+    }
+    .stRadio>div>div, .stSelectbox>div>div {
+        background-color: #333333;
+        color: white;
     }
     </style>
     """,
