@@ -116,7 +116,7 @@ with container:
     st.markdown("Paso 3: Hacé click en el botón 'Just do it!' y podrás encontrar recomendaciones sobre lo que buscas")
 
 
-input_img = st.file_uploader(type=['jpg', 'png', 'jpeg'])
+input_img = st.file_uploader("Ingresá la foto del modelo que buscas y conocé más con un solo click", type=['jpg', 'png', 'jpeg'])
 picture = st.camera_input("Sacá tu foto acá!")
 
 if picture:
