@@ -107,7 +107,12 @@ with col2:
 
 st.container(height=30, border=False)
 
+
 st.header("Cómo funciona?")
+
+container = st.container(border=True)
+container.write("Ingresá la foto del modelo que buscas y conocé más con un solo click")
+
 
 input_img = st.file_uploader("Ingresá la foto del modelo que buscas y conocé más con un solo click", type=['jpg', 'png', 'jpeg'])
 
