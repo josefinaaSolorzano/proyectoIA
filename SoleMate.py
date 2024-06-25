@@ -52,6 +52,15 @@ st.markdown(
         background-color: black !important;
         color: white !important;
     }
+
+    [data-testid="stSidebar"] {
+        background-color: #000000; /* Color negro */
+    }
+    .st-1, .st-3 {
+        background-color: black !important;
+        color: white !important;
+    }
+
     </style>
     """,
     unsafe_allow_html=True
