@@ -144,13 +144,13 @@ st.container(height=30, border=False)
 col1, col2 = st.columns([1,1])
 
 with col1:
-    container = st.container(border=True)
+    container = st.container(border=False)
     with container:
         st.image('4KDr.gif', use_column_width=True)
 
 with col2:
     # Contenedor para el texto centrado
-    container = st.container(border=True)
+    container = st.container(border=False)
     with container:
         st.markdown(
             """
