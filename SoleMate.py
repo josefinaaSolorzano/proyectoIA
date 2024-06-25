@@ -105,7 +105,11 @@ with col2:
 
 st.container(height=30, border=False)
 
-st.header("Cómo funciona?")
+container = st.container(border=True)
+with container:
+    st.markdown("Cómo funciona?")
+    st.markdown("Paso 1: Cargá o sacá una del modelo de zapatillas que estas buscando o uno similiar")
+    st.markdown("Paso 2: Hacé click en el botón 'Just do it!' y podrás encontrar recomendaciones sobre lo que buscas")
 
 # Opción para elegir entre cargar una imagen o tomar una foto
 option = st.selectbox("Selecciona una opción", ["Selecciona una opción", "Cargar imagen", "Tomar foto"])
@@ -124,7 +128,7 @@ elif option == "Tomar foto":
 img_to_process = input_img or camera_img
 
 if img_to_process is not None:
-    if st.button('Clasificar'):
+    if st.button('Just do it!'):
         st.toast('Just do it!', icon='👟')
         
         col1, col2 = st.columns([1 , 2])
@@ -164,30 +168,67 @@ data = {
     'Nombre': ['NSO Abasto', 'NSO Alto Palermo', 'Factory Arcos', 'Factory Barracas', 'Factory Chacarita', 'Factory Rivadavia', 'Nike Avenida Santa Fe', 'NSO Unicenter', 'NSO Alto Avellaneda', 'Factory La Plata', 'Factory Soleil', 'Nike Alto Rosario', 'Nike Rosario', 'Nike Maxi Mendoza', 'Nike Tucumán', 'Nike Nuevocentro'],
     'Dirección': ['Avenida Corrientes 3247, CABA', 'Arenales 3360, CABA', 'Paraguay 4979, CABA', 'California 2098, CABA', 'Avenida Corrientes 6433, CABA', 'Avenida Rivadavia 8961, CABA', 'Avenida Santa Fe 1681, CABA', 'Paraná 3745, Martínez', 'Gral. Güemes 897, Crucecita', 'Camino Parque Centenario y Calle 507, La Plata', 'Bernardo de Irigoyen 2647, San Isidro', 'Junín 501, Rosario', 'Córdoba 1260, Rosario', 'Avenida San Martin 1468, Mendoza', 'Mendoza 562, San Miguel de Tucumán', 'Duarte Quiros 1400, Córdoba'],
     'Provincia': ['Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Santa Fe', 'Santa Fe', 'Mendoza', 'Tucumán', 'Córdoba'],
-    'Latitud': [-34.603722, -34.588058, -34.583733, -34.636210, -34.583088, -34.630779, -34.595356, -34.501840, -34.670908, -34.904680, -34.498480, -32.956634, -32.942847, -32.889731, -26.824142, -31.417339],
-    'Longitud': [-58.410904, -58.410526, -58.431961, -58.381592, -58.467369, -58.506790, -58.389870, -58.520485, -58.366353, -57.939468, -58.681000, -60.648104, -60.641346, -68.844390, -65.203178, -64.189274]
+    'Latitud': [-34.6037, -34.5882, -34.5803, -34.6471, -34.5933, -34.6355, -34.5955, -34.5081, -34.6767, -34.8841, -34.4909, -32.9274, -32.9457, -32.8866, -26.8280, -31.4119],
+    'Longitud': [-58.4103, -58.4098, -58.4272, -58.3773, -58.4496, -58.4903, -58.3914, -58.5266, -58.3665, -58.0039, -58.5903, -60.6694, -60.6402, -68.8390, -65.2050, -64.2053]
 }
-
 df = pd.DataFrame(data)
 
-# Crear la visualización de mapa
-st.pydeck_chart(pdk.Deck(
-    map_style=None,
-    initial_view_state=pdk.ViewState(
-        latitude=-34.603722,
-        longitude=-58.381592,
-        zoom=11,
-        pitch=50,
-    ),
-    layers=[
-        pdk.Layer(
-           'ScatterplotLayer',
-           data=df,
-           get_position='[Longitud, Latitud]',
-           get_color='[200, 30, 0, 160]',
-           get_radius=200,
-        ),
-    ],
-))
+# Convertir latitud y longitud a flotantes
+df['Latitud'] = df['Latitud'].astype(float)
+df['Longitud'] = df['Longitud'].astype(float)
 
-st.dataframe(df)
+# Agregar un filtro de provincia
+provincias = df['Provincia'].unique().tolist()
+provincia_seleccionada = st.selectbox('Selecciona una provincia', provincias)
+
+# Filtrar el DataFrame según la provincia seleccionada
+df_filtrado = df[df['Provincia'] == provincia_seleccionada]
+
+
+# Configuración del mapa
+view_state = pdk.ViewState(latitude=df_filtrado['Latitud'].iloc[0], longitude=df_filtrado['Longitud'].iloc[0], zoom=10, bearing=0, pitch=0)
+
+# Crear capa de marcadores
+layer = pdk.Layer(
+    'ScatterplotLayer',
+    data=df_filtrado,
+    get_position='[Longitud, Latitud]',
+    get_radius=100,
+    get_fill_color=[255, 0, 0],
+    pickable=True,
+    auto_highlight=True
+)
+
+# Renderizar el mapa
+r = pdk.Deck(
+    layers=[layer],
+    initial_view_state=view_state,
+    tooltip={
+        "html": "<b>Nombre:</b> {Nombre} <br> <b>Dirección:</b> {Dirección} <br> <b>Provincia:</b> {Provincia}",
+        "style": {
+            "color": "white"
+        }
+    }
+)
+
+# Mostrar el mapa
+st.pydeck_chart(r)
+
+#Mostrar listado de tiendas a la izquierda del mapa
+st.header('Tiendas de Nike en la provincia seleccionada:')
+
+# Mostrar el listado de tiendas como contenedores
+for index, row in df_filtrado.iterrows():
+    st.markdown(f"{row['Nombre']}")
+    st.write(f"Dirección: {row['Dirección']}")
+    st.write("---")  # Agregar una línea divisoria entre cada tienda
+
+
+with st.sidebar:
+    st.container(height=20, border=False)
+
+st.sidebar.subheader('Regístrate para recibir ofertas exclusivas')
+email = st.sidebar.text_input('Correo electrónico')
+if st.sidebar.button('Registrarse'):
+    # Guardar el correo electrónico en una base de datos o enviar a una lista de correo
+    st.sidebar.success('¡Gracias por registrarte!')
