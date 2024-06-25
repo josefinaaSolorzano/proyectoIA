@@ -110,3 +110,12 @@ with st.sidebar:
         if st.button("Enviar"):
             st.success("¡Gracias por tu mensaje! Un asesor se pondrá en contacto contigo pronto.")
    
+with st.sidebar:
+    messages = st.container(height=300)
+    messages.chat_message("assistant").write(f"Hola! Podrías indicarme con qué podemos ayudarte hoy?") 
+    if prompt := st.chat_input("Dejanos tu consulta!"):
+        messages.chat_message("user").write(prompt) 
+        messages.chat_message("assistant").write(f"Gracias por tu consulta! Un asesor se estará contactando con vos en breve :)") 
+
+with st.sidebar:
+    st.container(height=30, border=False)
