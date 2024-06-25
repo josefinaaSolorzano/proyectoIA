@@ -14,50 +14,43 @@ st.set_page_config(
 # Estilo CSS personalizado para el fondo negro y texto blanco
 st.markdown(
     """
-    <style>
-    body {
+      <style>
+    body, .stApp {
         background-color: black;
         color: white;
     }
-    .stApp {
-        background-color: black;
-        color: white;
-    }
-    .css-1d391kg {
+    .css-1d391kg, .stSidebar, .stSidebar > div, .css-1lcbmhc, .css-17lntkn, .css-1adrfps, .css-1oyv4s9, .css-1v3fvcr {
         background-color: black !important;
-    }
-    .stSidebar, .stSidebar > div {
-        background-color: black;
-        color: white;
-    }
-    .css-1lcbmhc, .css-17lntkn, .css-1adrfps, .css-1oyv4s9, .css-1v3fvcr {
-        background-color: black;
-        color: white;
+        color: white !important;
     }
     h1, h2, h3, h4, h5, h6, p, div, span, .stButton>button, .stFileUploader>label, .stCameraInput>label {
-        color: white;
+        color: white !important;
     }
     .stButton>button, .stFileUploader, .stCameraInput {
         background-color: #333333;
         border: none;
-        color: white;
+        color: white !important;
     }
     .stRadio>label, .stSelectbox>label, .stTextInput>label {
-        color: white;
+        color: white !important;
     }
     .stRadio>div>div, .stSelectbox>div>div {
         background-color: #333333;
-        color: white;
+        color: white !important;
     }
     .stTextInput>div>input, .stTextArea>div>textarea, .stNumberInput>div>input, .stDateInput>div>input, .stTimeInput>div>input {
         background-color: #333333;
-        color: white;
+        color: white !important;
     }
     .css-1r6slb0 {
-        color: white;
+        color: white !important;
     }
     .stContainer {
-        background-color: black;
+        background-color: black !important;
+    }
+    .css-1d391kg, .css-1r3pliv {
+        background-color: black !important;
+        color: white !important;
     }
     </style>
     """,
