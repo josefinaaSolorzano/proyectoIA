@@ -60,6 +60,9 @@ st.markdown(
         background-color: black !important;
         color: white !important;
     }
+     .st-1:hover, .st-3:hover, .st-4:hover, .st-5:hover {
+        background-color: #555555 !important;
+    }
 
     </style>
     """,
