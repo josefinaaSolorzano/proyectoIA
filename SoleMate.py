@@ -5,7 +5,6 @@ import streamlit as st
 import pandas as pd
 import pydeck as pdk
 
-
 st.set_page_config(
     page_title="SoleMate",
     page_icon="logoNike.ico",  # Asegúrate de que la ruta al archivo de imagen sea correcta
@@ -108,11 +107,18 @@ st.container(height=30, border=False)
 
 st.header("Cómo funciona?")
 
-# Opción para cargar una imagen desde el dispositivo
-input_img = st.file_uploader("Ingresá la foto del modelo que buscas y conocé más con un solo click", type=['jpg', 'png', 'jpeg'])
+# Opción para elegir entre cargar una imagen o tomar una foto
+option = st.selectbox("Selecciona una opción", ["Selecciona una opción", "Cargar imagen", "Tomar foto"])
 
-# Opción para tomar una foto con la cámara
-camera_img = st.camera_input("O tomá una foto del modelo")
+# Variables para almacenar la imagen
+input_img = None
+camera_img = None
+
+# Dependiendo de la elección del usuario, mostrar la opción correspondiente
+if option == "Cargar imagen":
+    input_img = st.file_uploader("Sube una imagen", type=['jpg', 'png', 'jpeg'])
+elif option == "Tomar foto":
+    camera_img = st.camera_input("Toma una foto")
 
 # Determinar cuál imagen usar
 img_to_process = input_img or camera_img
@@ -143,7 +149,6 @@ if img_to_process is not None:
                 # Mostrar recomendación basada en la clase
                 recommendation = recommendations.get(label.strip(), "No hay recomendación disponible para esta clase.")
                 st.markdown(recommendation)
-                
 
 st.container(height=30, border=False)
 
