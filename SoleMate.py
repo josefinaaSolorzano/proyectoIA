@@ -23,6 +23,9 @@ st.markdown(
         background-color: black;
         color: white;
     }
+    .css-1d391kg {
+        background-color: black !important;
+    }
     .stSidebar, .stSidebar > div {
         background-color: black;
         color: white;
