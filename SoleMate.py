@@ -107,6 +107,12 @@ with col2:
         st.header("¿Qué es SoleMate?")
         st.write("Somos una app que te permite encontrar tu par ideal de la manera más rápida y fácil posible. Junto con Nike, diseñamos una app que te permite conocer sus modelos de una manera nunca antes vista. ¿Qué esperas para encontrar tu *SoleMate*?")
 
+st.markdown(
+    "<h1 style='text-align: center;'>¿Qué es SoleMate?</h1>",
+    "<h4 style='text-align: center;'>Somos una app que te permite encontrar tu par ideal de la manera más rápida y fácil posible. Junto con Nike, diseñamos una app que te permite conocer sus modelos de una manera nunca antes vista. ¿Qué esperas para encontrar tu *SoleMate*?</h4>",
+    unsafe_allow_html=True
+)
+
 st.container(height=30, border=False)
 
 container = st.container(border=True)
