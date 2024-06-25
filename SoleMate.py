@@ -53,6 +53,9 @@ st.markdown(
     .css-1r6slb0 {
         color: white;
     }
+    .stContainer {
+        background-color: black;
+    }
     </style>
     """,
     unsafe_allow_html=True
