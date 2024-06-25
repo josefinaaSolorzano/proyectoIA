@@ -53,39 +53,39 @@ def classify_fruit(img):
 # Dictionary of recommendations for each class
 recommendations = {
     "0 Air Forces": """
-        **Comodidad**: Excelente amortiguación gracias a la unidad Air en el talón, proporcionando comodidad para uso diario.
-        **Talles**: Disponibles en una amplia gama de talles para hombres, mujeres y niños.
-        **Colores**: Variedad de colores y ediciones limitadas, desde el clásico blanco y negro hasta combinaciones de colores vibrantes y colaboraciones con artistas.
-        **Uso**: Perfectas para el uso diario, moda urbana y casual.
-        **Perfil del Usuario**: Ideal para jóvenes y adultos que buscan un estilo casual y moderno, amantes de la moda urbana y coleccionistas de zapatillas.
+        *Comodidad*: Excelente amortiguación gracias a la unidad Air en el talón, proporcionando comodidad para uso diario.\n
+        *Talles*: Disponibles en una amplia gama de talles para hombres, mujeres y niños.\n
+        *Colores*: Variedad de colores y ediciones limitadas, desde el clásico blanco y negro hasta combinaciones de colores vibrantes y colaboraciones con artistas.\n
+        *Uso*: Perfectas para el uso diario, moda urbana y casual.\n
+        *Perfil del Usuario*: Ideal para jóvenes y adultos que buscan un estilo casual y moderno, amantes de la moda urbana y coleccionistas de zapatillas.
     """,
     "1 Air Jordans": """
-        **Comodidad**: Diseñadas para ofrecer soporte y comodidad durante el juego de baloncesto, con tecnología de amortiguación avanzada.
-        **Talles**: Disponibles en talles para hombres, mujeres y niños.
-        **Colores**: Diversidad de colores y ediciones limitadas, con combinaciones que suelen contar con la participación del propio Michael Jordan.
-        **Uso**: Originalmente para baloncesto, ahora también usadas como zapatillas de moda.
-        **Perfil del Usuario**: Apreciadas por jugadores de baloncesto, coleccionistas y aficionados a la moda deportiva.
+        *Comodidad*: Diseñadas para ofrecer soporte y comodidad durante el juego de baloncesto, con tecnología de amortiguación avanzada.\n
+        *Talles*: Disponibles en talles para hombres, mujeres y niños.\n
+        *Colores*: Diversidad de colores y ediciones limitadas, con combinaciones que suelen contar con la participación del propio Michael Jordan.\n
+        *Uso*: Originalmente para baloncesto, ahora también usadas como zapatillas de moda.\n
+        *Perfil del Usuario*: Apreciadas por jugadores de baloncesto, coleccionistas y aficionados a la moda deportiva.
     """,
     "2 Air Maxes": """
-        **Comodidad**: Excelente amortiguación y soporte gracias a la unidad Air Max, ideales para largas caminatas y uso diario.
-        **Talles**: Disponibles en talles para toda la familia.
-        **Colores**: Amplia gama de colores y estilos, desde tonos neutros hasta combinaciones audaces.
-        **Uso**: Perfectas para el uso diario, running y actividades físicas ligeras.
-        **Perfil del Usuario**: Adecuadas para personas activas que valoran la comodidad y el estilo deportivo, tanto jóvenes como adultos.
+        *Comodidad*: Excelente amortiguación y soporte gracias a la unidad Air Max, ideales para largas caminatas y uso diario.\n
+        *Talles*: Disponibles en talles para toda la familia.\n
+        *Colores*: Amplia gama de colores y estilos, desde tonos neutros hasta combinaciones audaces.\n
+        *Uso*: Perfectas para el uso diario, running y actividades físicas ligeras.\n
+        *Perfil del Usuario*: Adecuadas para personas activas que valoran la comodidad y el estilo deportivo, tanto jóvenes como adultos.
     """,
     "3 Cleats": """
-        **Comodidad**: Sujeción firme y diseño anatómico para un ajuste perfecto, con tecnologías que proporcionan estabilidad y comodidad durante el juego.
-        **Talles**: Disponibles en talles para hombres, mujeres y niños.
-        **Colores**: Variedad de colores adaptados a los equipos y gustos personales.
-        **Uso**: Específicas para deportes de campo como fútbol, béisbol y fútbol americano.
-        **Perfil del Usuario**: Deportistas que practican deportes de campo y buscan rendimiento, durabilidad y soporte en su calzado.
+        *Comodidad*: Sujeción firme y diseño anatómico para un ajuste perfecto, con tecnologías que proporcionan estabilidad y comodidad durante el juego.\n
+        *Talles*: Disponibles en talles para hombres, mujeres y niños.\n
+        *Colores*: Variedad de colores adaptados a los equipos y gustos personales.\n
+        *Uso*: Específicas para deportes de campo como fútbol, béisbol y fútbol americano.\n
+        *Perfil del Usuario*: Deportistas que practican deportes de campo y buscan rendimiento, durabilidad y soporte en su calzado.
     """,
     "4 Dunks": """
-        **Comodidad**: Suela acolchada y estructura resistente, diseñada inicialmente para el baloncesto y adaptada para el skateboard.
-        **Talles**: Disponibles en una amplia variedad de talles para hombres y mujeres.
-        **Colores**: Gama extensa de colores y ediciones especiales, con colaboraciones frecuentes que añaden valor coleccionable.
-        **Uso**: Popular en el skateboard, moda urbana y uso casual.
-        **Perfil del Usuario**: Skaters, entusiastas de la moda urbana y coleccionistas de zapatillas exclusivas.
+        *Comodidad*: Suela acolchada y estructura resistente, diseñada inicialmente para el baloncesto y adaptada para el skateboard.\n
+        *Talles*: Disponibles en una amplia variedad de talles para hombres y mujeres.\n
+        *Colores*: Gama extensa de colores y ediciones especiales, con colaboraciones frecuentes que añaden valor coleccionable.\n
+        *Uso*: Popular en el skateboard, moda urbana y uso casual.\n
+        *Perfil del Usuario*: Skaters, entusiastas de la moda urbana y coleccionistas de zapatillas exclusivas.
     """,
 }
 
@@ -102,45 +102,37 @@ with col1:
 
 with col2:
     st.header("¿Qué es SoleMate?")
-    st.write("Somos una app que te permite encontrar tu par ideal de la manera mas rapida y facil posible. Junto con Nike, diseñamos una app que te permite conocer sus modelos de una manera nunca antes vista. Que esperas para encontrar tu **SoleMate**")
-
+    st.write("Somos una app que te permite encontrar tu par ideal de la manera más rápida y fácil posible. Junto con Nike, diseñamos una app que te permite conocer sus modelos de una manera nunca antes vista. ¿Qué esperas para encontrar tu *SoleMate*?")
 
 st.container(height=30, border=False)
 
+st.header("Cómo funciona?")
 
-container = st.container(border=True)
-with container:
-    st.markdown("Cómo funciona?")
-    st.markdown("Paso 1: Cargá o sacá una del modelo de zapatillas que estas buscando o uno similiar")
-    st.markdown("Paso 2: Hacé click en el botón 'Just do it!' y podrás encontrar recomendaciones sobre lo que buscas")
-    
-
-
+# Opción para cargar una imagen desde el dispositivo
 input_img = st.file_uploader("Ingresá la foto del modelo que buscas y conocé más con un solo click", type=['jpg', 'png', 'jpeg'])
 
-picture = st.camera_input("Sacá tu foto acá!")
+# Opción para tomar una foto con la cámara
+camera_img = st.camera_input("O tomá una foto del modelo")
 
+# Determinar cuál imagen usar
+img_to_process = input_img or camera_img
 
-
-if input_img is not None:
-    if st.button('Just do it!'):
-     st.toast('Just do it!', icon='👟')
+if img_to_process is not None:
+    if st.button('Clasificar'):
+        st.toast('Just do it!', icon='👟')
         
-    col1, col2 = st.columns([1 , 2])
+        col1, col2 = st.columns([1 , 2])
 
-    with col1:
+        with col1:
             st.info("Imagen cargada")
-            st.image(input_img, use_column_width=True)
-            st.image(picture, use_column_width=True)
+            st.image(img_to_process, use_column_width=True)
 
-    with col2:
+        with col2:
             st.info("Tu par ideal es...")
-            image_file = Image.open(input_img)
-            image_file = Image.open(picture)
+            image_file = Image.open(img_to_process)
 
             with st.spinner('Analizando imagen...'):
                 label, confidence_score = classify_fruit(image_file)
-                label, confidence_score = classify_fruit(picture)
 
                 # Extraer el nombre de la etiqueta sin el número
                 label_description = label.split(maxsplit=1)[1]  # Divide la etiqueta por el primer espacio y toma el segundo elemento
@@ -150,9 +142,9 @@ if input_img is not None:
 
                 # Mostrar recomendación basada en la clase
                 recommendation = recommendations.get(label.strip(), "No hay recomendación disponible para esta clase.")
-                st.write(recommendation)
-                st.link_button("https://solematearg.streamlit.app/Our_SoleMates", label = "Our SoleMates")
-                
+                st.markdown(recommendation)
+                st.page_link('pages/Our_SoleMates.py', label = "Our SoleMates")
+
 st.container(height=30, border=False)
 
 video_file = open('NikeComercial.mp4', 'rb')
@@ -167,69 +159,30 @@ data = {
     'Nombre': ['NSO Abasto', 'NSO Alto Palermo', 'Factory Arcos', 'Factory Barracas', 'Factory Chacarita', 'Factory Rivadavia', 'Nike Avenida Santa Fe', 'NSO Unicenter', 'NSO Alto Avellaneda', 'Factory La Plata', 'Factory Soleil', 'Nike Alto Rosario', 'Nike Rosario', 'Nike Maxi Mendoza', 'Nike Tucumán', 'Nike Nuevocentro'],
     'Dirección': ['Avenida Corrientes 3247, CABA', 'Arenales 3360, CABA', 'Paraguay 4979, CABA', 'California 2098, CABA', 'Avenida Corrientes 6433, CABA', 'Avenida Rivadavia 8961, CABA', 'Avenida Santa Fe 1681, CABA', 'Paraná 3745, Martínez', 'Gral. Güemes 897, Crucecita', 'Camino Parque Centenario y Calle 507, La Plata', 'Bernardo de Irigoyen 2647, San Isidro', 'Junín 501, Rosario', 'Córdoba 1260, Rosario', 'Avenida San Martin 1468, Mendoza', 'Mendoza 562, San Miguel de Tucumán', 'Duarte Quiros 1400, Córdoba'],
     'Provincia': ['Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Buenos Aires', 'Santa Fe', 'Santa Fe', 'Mendoza', 'Tucumán', 'Córdoba'],
-    'Latitud': [-34.6037, -34.5882, -34.5803, -34.6471, -34.5933, -34.6355, -34.5955, -34.5081, -34.6767, -34.8841, -34.4909, -32.9274, -32.9457, -32.8866, -26.8280, -31.4119],
-    'Longitud': [-58.4103, -58.4098, -58.4272, -58.3773, -58.4496, -58.4903, -58.3914, -58.5266, -58.3665, -58.0039, -58.5903, -60.6694, -60.6402, -68.8390, -65.2050, -64.2053]
+    'Latitud': [-34.603722, -34.588058, -34.583733, -34.636210, -34.583088, -34.630779, -34.595356, -34.501840, -34.670908, -34.904680, -34.498480, -32.956634, -32.942847, -32.889731, -26.824142, -31.417339],
+    'Longitud': [-58.410904, -58.410526, -58.431961, -58.381592, -58.467369, -58.506790, -58.389870, -58.520485, -58.366353, -57.939468, -58.681000, -60.648104, -60.641346, -68.844390, -65.203178, -64.189274]
 }
+
 df = pd.DataFrame(data)
 
-# Convertir latitud y longitud a flotantes
-df['Latitud'] = df['Latitud'].astype(float)
-df['Longitud'] = df['Longitud'].astype(float)
+# Crear la visualización de mapa
+st.pydeck_chart(pdk.Deck(
+    map_style=None,
+    initial_view_state=pdk.ViewState(
+        latitude=-34.603722,
+        longitude=-58.381592,
+        zoom=11,
+        pitch=50,
+    ),
+    layers=[
+        pdk.Layer(
+           'ScatterplotLayer',
+           data=df,
+           get_position='[Longitud, Latitud]',
+           get_color='[200, 30, 0, 160]',
+           get_radius=200,
+        ),
+    ],
+))
 
-# Agregar un filtro de provincia
-provincias = df['Provincia'].unique().tolist()
-provincia_seleccionada = st.selectbox('Selecciona una provincia', provincias)
-
-# Filtrar el DataFrame según la provincia seleccionada
-df_filtrado = df[df['Provincia'] == provincia_seleccionada]
-
-
-# Configuración del mapa
-view_state = pdk.ViewState(latitude=df_filtrado['Latitud'].iloc[0], longitude=df_filtrado['Longitud'].iloc[0], zoom=10, bearing=0, pitch=0)
-
-# Crear capa de marcadores
-layer = pdk.Layer(
-    'ScatterplotLayer',
-    data=df_filtrado,
-    get_position='[Longitud, Latitud]',
-    get_radius=100,
-    get_fill_color=[255, 0, 0],
-    pickable=True,
-    auto_highlight=True
-)
-
-# Renderizar el mapa
-r = pdk.Deck(
-    layers=[layer],
-    initial_view_state=view_state,
-    tooltip={
-        "html": "<b>Nombre:</b> {Nombre} <br> <b>Dirección:</b> {Dirección} <br> <b>Provincia:</b> {Provincia}",
-        "style": {
-            "color": "white"
-        }
-    }
-)
-
-# Mostrar el mapa
-st.pydeck_chart(r)
-
-#Mostrar listado de tiendas a la izquierda del mapa
-st.header('Tiendas de Nike en la provincia seleccionada:')
-
-# Mostrar el listado de tiendas como contenedores
-for index, row in df_filtrado.iterrows():
-    st.markdown(f"*{row['Nombre']}*")
-    st.write(f"Dirección: {row['Dirección']}")
-    st.write("---")  # Agregar una línea divisoria entre cada tienda
-
-
-with st.sidebar:
-    st.container(height=20, border=False)
-
-st.sidebar.subheader('Regístrate para recibir ofertas exclusivas')
-email = st.sidebar.text_input('Correo electrónico')
-if st.sidebar.button('Registrarse'):
-    # Guardar el correo electrónico en una base de datos o enviar a una lista de correo
-    st.sidebar.success('¡Gracias por registrarte!')
-
-
+st.dataframe(df)
