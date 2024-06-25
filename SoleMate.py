@@ -23,25 +23,34 @@ st.markdown(
         background-color: black;
         color: white;
     }
-    .stSidebar {
-        background-color: black;
-    }
-    .css-1lcbmhc, .css-17lntkn, .css-1adrfps, .css-1oyv4s9 {
+    .stSidebar, .stSidebar > div {
         background-color: black;
         color: white;
     }
-    h1, h2, h3, h4, h5, h6, p, div, span, .stButton>button {
+    .css-1lcbmhc, .css-17lntkn, .css-1adrfps, .css-1oyv4s9, .css-1v3fvcr {
+        background-color: black;
         color: white;
     }
-    .stButton>button {
+    h1, h2, h3, h4, h5, h6, p, div, span, .stButton>button, .stFileUploader>label, .stCameraInput>label {
+        color: white;
+    }
+    .stButton>button, .stFileUploader, .stCameraInput {
         background-color: #333333;
         border: none;
+        color: white;
     }
     .stRadio>label, .stSelectbox>label, .stTextInput>label {
         color: white;
     }
     .stRadio>div>div, .stSelectbox>div>div {
         background-color: #333333;
+        color: white;
+    }
+    .stTextInput>div>input, .stTextArea>div>textarea, .stNumberInput>div>input, .stDateInput>div>input, .stTimeInput>div>input {
+        background-color: #333333;
+        color: white;
+    }
+    .css-1r6slb0 {
         color: white;
     }
     </style>
