@@ -94,15 +94,18 @@ st.subheader('Encontrá tu par perfecto', divider='red')
 
 st.container(height=30, border=False)
 
-container = st.container(border=True)
-#col1, col2 = st.columns([1,1])
-with container:
-    st.image('4KDr.gif', use_column_width=True)
+col1, col2 = st.columns([1,1])
 
-container = st.container(border=True)
-with container:
-    st.header("¿Qué es SoleMate?")
-    st.write("Somos una app que te permite encontrar tu par ideal de la manera más rápida y fácil posible. Junto con Nike, diseñamos una app que te permite conocer sus modelos de una manera nunca antes vista. ¿Qué esperas para encontrar tu *SoleMate*?")
+with col1:
+    container = st.container(border=True)
+    with container:
+        st.image('4KDr.gif', use_column_width=True)
+
+with col2:
+    container = st.container(border=True)
+    with container:
+        st.header("¿Qué es SoleMate?")
+        st.write("Somos una app que te permite encontrar tu par ideal de la manera más rápida y fácil posible. Junto con Nike, diseñamos una app que te permite conocer sus modelos de una manera nunca antes vista. ¿Qué esperas para encontrar tu *SoleMate*?")
 
 st.container(height=30, border=False)
 
