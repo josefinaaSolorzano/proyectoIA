@@ -137,7 +137,7 @@ if input_img is not None:
                 # Mostrar recomendación basada en la clase
                 recommendation = recommendations.get(label.strip(), "No hay recomendación disponible para esta clase.")
                 st.write(recommendation)
-                st.page_link('proyectoIA\pages\Our_SoleMates.py', label = "Our SoleMates")
+                st.page_link('https://solematearg.streamlit.app/Our_SoleMates', label = "Our SoleMates")
 
 
 
