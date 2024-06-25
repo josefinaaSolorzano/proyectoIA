@@ -14,7 +14,7 @@ st.set_page_config(
 # Estilo CSS personalizado para el fondo negro y texto blanco
 st.markdown(
     """
-      <style>
+    <style>
     body, .stApp {
         background-color: black;
         color: white;
@@ -34,7 +34,7 @@ st.markdown(
     .stRadio>label, .stSelectbox>label, .stTextInput>label {
         color: white !important;
     }
-    .stRadio>div>div, .stSelectbox>div>div {
+    .stRadio>div>div, .stSelectbox>div>div, .stSelectbox>div>ul>li, .stSelectbox>div>ul>li>div {
         background-color: #333333;
         color: white !important;
     }
