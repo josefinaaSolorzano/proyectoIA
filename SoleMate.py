@@ -102,16 +102,18 @@ with col1:
         st.image('4KDr.gif', use_column_width=True)
 
 with col2:
+    # Contenedor para el texto centrado
     container = st.container(border=True)
     with container:
-        st.header("¿Qué es SoleMate?")
-        st.write("Somos una app que te permite encontrar tu par ideal de la manera más rápida y fácil posible. Junto con Nike, diseñamos una app que te permite conocer sus modelos de una manera nunca antes vista. ¿Qué esperas para encontrar tu *SoleMate*?")
-
-st.markdown(
-    "<h1 style='text-align: center;'>¿Qué es SoleMate?</h1>",
-    "<h4 style='text-align: center;'>Somos una app que te permite encontrar tu par ideal de la manera más rápida y fácil posible. Junto con Nike, diseñamos una app que te permite conocer sus modelos de una manera nunca antes vista. ¿Qué esperas para encontrar tu *SoleMate*?</h4>",
-    unsafe_allow_html=True
-)
+        st.markdown(
+            """
+            <div style="text-align: center;">
+                <h2>¿Qué es SoleMate?</h2>
+                <p>Somos una app que te permite encontrar tu par ideal de la manera más rápida y fácil posible. Junto con Nike, diseñamos una app que te permite conocer sus modelos de una manera nunca antes vista. ¿Qué esperas para encontrar tu <i>SoleMate</i>?</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
 st.container(height=30, border=False)
 
