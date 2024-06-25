@@ -120,14 +120,14 @@ st.container(height=30, border=False)
 
 container = st.container(border=True)
 with container:
-    st.markdown("Cómo funciona?")
+    st.header("Cómo funciona?")
     st.markdown("Paso 1: Hacé click 'Selecciona una opción' y elegí la metodología que te resulte más conveniente")
     st.markdown("Paso 2: Cargá o sacá una del modelo de zapatillas que estas buscando o uno similar")
     st.markdown("Paso 3: Una vez cargada la imagen hacé click en el botón 'Just do it!' y encontrá recomendaciones sobre lo que buscas!")
     st.markdown("Paso 4: Hacé click en el link y descubrí tu Solemate")
 
 # Opción para elegir entre cargar una imagen o tomar una foto
-option = st.selectbox("Selecciona una opción", ["Selecciona una opción", "Cargar imagen", "Tomar foto"])
+option = st.selectbox("", ["Selecciona una opción", "Cargar imagen", "Tomar foto"])
 
 # Variables para almacenar la imagen
 input_img = None
