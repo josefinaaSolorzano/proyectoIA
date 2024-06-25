@@ -11,6 +11,30 @@ st.set_page_config(
     layout="wide"
 )
 
+# Estilo CSS personalizado para el fondo negro y texto blanco
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: black;
+        color: white;
+    }
+    .stApp {
+        background-color: black;
+        color: white;
+    }
+    h1, h2, h3, h4, h5, h6, p, div, span, .stButton>button {
+        color: white;
+    }
+    .stButton>button {
+        background-color: #333333;
+        border: none;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 def classify_fruit(img):
     # Disable scientific notation for clarity
     np.set_printoptions(suppress=True)
@@ -122,9 +146,9 @@ container = st.container(border=True)
 with container:
     st.header("Cómo funciona?")
     st.markdown("Paso 1: Hacé click 'Selecciona una opción' y elegí la metodología que te resulte más conveniente")
-    st.markdown("Paso 2: Cargá o sacá una del modelo de zapatillas que estas buscando o uno similar")
+    st.markdown("Paso 2: Cargá o sacá una foto del modelo de zapatillas que estas buscando o uno similar")
     st.markdown("Paso 3: Una vez cargada la imagen hacé click en el botón 'Just do it!' y encontrá recomendaciones sobre lo que buscas!")
-    st.markdown("Paso 4: Hacé click en el link y descubrí tu Solemate")
+    st.markdown("Paso 4: Hacé click en el link y descubrí tu SoleMate")
 
 # Opción para elegir entre cargar una imagen o tomar una foto
 option = st.selectbox("", ["Selecciona una opción", "Cargar imagen", "Tomar foto"])
