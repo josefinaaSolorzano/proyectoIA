@@ -138,7 +138,7 @@ if input_img is not None:
                 recommendation = recommendations.get(label.strip(), "No hay recomendación disponible para esta clase.")
                 st.write(recommendation)
 
-st.page_link("pages/Our_SoleMates.py")
+#st.page_link("pages/Our_SoleMates.py")
 
 st.container(height=30, border=False)
 
