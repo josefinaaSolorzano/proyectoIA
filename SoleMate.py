@@ -143,7 +143,7 @@ if img_to_process is not None:
                 # Mostrar recomendación basada en la clase
                 recommendation = recommendations.get(label.strip(), "No hay recomendación disponible para esta clase.")
                 st.markdown(recommendation)
-                st.page_link('pages/Our_SoleMates.py', label = "Our SoleMates")
+                
 
 st.container(height=30, border=False)
 
