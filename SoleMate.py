@@ -1,17 +1,17 @@
-from keras.models import load_model  # TensorFlow is required for Keras to work
-from PIL import Image, ImageOps  # Install pillow instead of PIL
-import numpy as np
 import streamlit as st
+from PIL import Image, ImageOps
+import numpy as np
 import pandas as pd
 import pydeck as pdk
+from keras.models import load_model
 
 st.set_page_config(
     page_title="SoleMate",
-    page_icon="logoNike.ico",  # Asegúrate de que la ruta al archivo de imagen sea correcta
+    page_icon="logoNike.ico",
     layout="wide"
 )
 
-# Estilo CSS personalizado para el fondo negro y texto blanco
+# Estilo CSS personalizado para el botón de "Comprar este modelo"
 st.markdown(
     """
     <style>
@@ -23,7 +23,7 @@ st.markdown(
         background-color: black !important;
     }
     [data-testid="stSidebar"] {
-        background-color: #000000; /* Color negro */
+        background-color: #000000;
     }
     [data-testid="stSidebar"] h1, 
     [data-testid="stSidebar"] h2, 
@@ -41,26 +41,26 @@ st.markdown(
         color: white !important;
     }
     .stButton>button {
-        background-color: black !important;
+        background-color: #E64A45 !important;
         color: white !important;
-        border: 1px solid white !important;
+        border: none !important;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
     }
     .stButton>button:hover {
-        background-color: #555555 !important;
-        color: white !important;
+        background-color: #FF6F61 !important;
     }
-    /* Estilo específico para la sección de carga de imágenes */
     [data-testid="stFileUploadDropzone"] div div {
         color: black !important;
     }
     h1, h2, h3, h4, h5, h6, p, .stButton>button {
         color: white !important;
     }
-    /* Estilo específico para la sección de carga de imágenes */
     [data-testid="stFileUploadDropzone"] div div {
         color: black !important;
     }
-    /* Estilo específico para la sección de cámara */
     [data-testid="stCameraInput"] div div {
         color: black !important;
     }
@@ -70,41 +70,20 @@ st.markdown(
 )
 
 def classify_fruit(img):
-    # Disable scientific notation for clarity
     np.set_printoptions(suppress=True)
-
-    # Load the model
     model = load_model("keras_model.h5", compile=False)
-
-    # Load the labels
     class_names = open("labels.txt", "r").readlines()
-
-    # Create the array of the right shape to feed into the keras model
     data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
-
-    # Convert the image to RGB
     image = img.convert("RGB")
-
-    # Resize the image to 224x224 and crop from the center
     size = (224, 224)
     image = ImageOps.fit(image, size, Image.Resampling.LANCZOS)
-
-    # Turn the image into a numpy array
     image_array = np.asarray(image)
-
-    # Normalize the image
     normalized_image_array = (image_array.astype(np.float32) / 127.5) - 1
-
-    # Load the image into the array
     data[0] = normalized_image_array
-
-    # Predicts the model
     prediction = model.predict(data)
     index = np.argmax(prediction)
     class_name = class_names[index]
     confidence_score = prediction[0][index]
-
-    # Return class name and confidence score
     return class_name.strip(), confidence_score
 
 st.title('SoleMate')
@@ -120,14 +99,13 @@ with col1:
         st.image('4KDr.gif', use_column_width=True)
 
 with col2:
-    # Contenedor para el texto centrado
     container = st.container(border=False)
     with container:
         st.markdown(
             """
             <div style="text-align: center;">
                 <h2>¿Qué es SoleMate?</h2>
-                <p>Somos una app que te permite encontrar tu par ideal de la manera más rápida y fácil posible."<p>
+                <p>Somos una app que te permite encontrar tu par ideal de la manera más rápida y fácil posible.</p>
                 <p>Junto con Nike, diseñamos una app que te permite conocer sus modelos de una manera nunca antes vista. ¿Qué esperas para encontrar tu <i>SoleMate</i>?</p>
             </div>
             """,
@@ -144,14 +122,11 @@ with container:
     st.markdown("Paso 3: Una vez cargada la imagen hacé click en el botón 'Just do it!' y encontrá recomendaciones sobre lo que buscas!")
     st.markdown("Paso 4: Hacé click en el link y descubrí tu SoleMate")
 
-# Opción para elegir entre cargar una imagen o tomar una foto
 option = st.selectbox("", ["Selecciona una opción", "Cargar imagen", "Tomar foto"])
 
-# Variables para almacenar la imagen
 input_img = None
 camera_img = None
 
-# Dependiendo de la elección del usuario, mostrar la opción correspondiente
 if option == "Cargar imagen":
     input_img = st.file_uploader("Sube una imagen", type=['jpg', 'png', 'jpeg'])
 elif option == "Tomar foto":
@@ -165,8 +140,6 @@ recommendations = {
     "4 Dunks": ('Comprar este modelo', 'https://www.nike.com.ar/nike/hombre/calzado/dunk?map=category-1,category-2,category-3,icono')
 }
 
-
-# Determinar cuál imagen usar
 img_to_process = input_img or camera_img
 
 if img_to_process is not None:
@@ -186,16 +159,16 @@ if img_to_process is not None:
             with st.spinner('Analizando imagen...'):
                 label, confidence_score = classify_fruit(image_file)
 
-                # Extraer el nombre de la etiqueta sin el número
-                label_description = label.split(maxsplit=1)[1]  # Divide la etiqueta por el primer espacio y toma el segundo elemento
-                label2 = label_description  # Guarda la descripción en label2
+                label_description = label.split(maxsplit=1)[1]
+                label2 = label_description
 
-                st.success(label2)  # Muestra la etiqueta sin el número
+                st.success(label2)
 
-                # Mostrar recomendación basada en la clase
                 recommendation = recommendations.get(label.strip(), "No hay recomendación disponible para esta clase.")
                 if recommendation:
-                    st.markdown(f'<a href="{recommendation[1]}" target="_blank"><button>{recommendation[0]}</button></a>', unsafe_allow_html=True)
+                    st.markdown(f'<a href="{recommendation[1]}" target="_blank"><button class="custom-button">{recommendation[0]}</button></a>', unsafe_allow_html=True)
+
+st.container(height=30, border=False)
 
 st.container(height=30, border=False)
 
