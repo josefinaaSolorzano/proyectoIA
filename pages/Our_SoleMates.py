@@ -13,48 +13,60 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    body {
+    body, .stApp {
         background-color: black;
         color: white;
     }
-    .stApp {
-        background-color: black;
-        color: white;
-    }
-    .stSidebar, .stSidebar > div {
-        background-color: black;
-        color: white;
-    }
-    .css-1lcbmhc, .css-17lntkn, .css-1adrfps, .css-1oyv4s9, .css-1v3fvcr {
-        background-color: black;
-        color: white;
+    .css-1d391kg, .stSidebar, .stSidebar > div, .css-1lcbmhc, .css-17lntkn, .css-1adrfps, .css-1oyv4s9, .css-1v3fvcr {
+        background-color: black !important;
+        color: white !important;
     }
     h1, h2, h3, h4, h5, h6, p, div, span, .stButton>button, .stFileUploader>label, .stCameraInput>label {
-        color: white;
+        color: white !important;
     }
     .stButton>button, .stFileUploader, .stCameraInput {
         background-color: #333333;
         border: none;
-        color: white;
+        color: white !important;
     }
     .stRadio>label, .stSelectbox>label, .stTextInput>label {
-        color: white;
+        color: white !important;
     }
-    .stRadio>div>div, .stSelectbox>div>div {
+    .stRadio>div>div, .stSelectbox>div>div, .stSelectbox>div>ul>li, .stSelectbox>div>ul>li>div {
         background-color: #333333;
-        color: white;
+        color: white !important;
     }
     .stTextInput>div>input, .stTextArea>div>textarea, .stNumberInput>div>input, .stDateInput>div>input, .stTimeInput>div>input {
         background-color: #333333;
-        color: white;
+        color: white !important;
     }
     .css-1r6slb0 {
-        color: white;
+        color: white !important;
     }
+    .stContainer {
+        background-color: black !important;
+    }
+    .css-1d391kg, .css-1r3pliv {
+        background-color: black !important;
+        color: white !important;
+    }
+
+    [data-testid="stSidebar"] {
+        background-color: #000000; /* Color negro */
+    }
+    .st-1, .st-3 {
+        background-color: black !important;
+        color: white !important;
+    }
+    .st-1:hover, .st-3:hover, .st-4:hover, .st-5:hover {
+        background-color: #555555 !important;
+    }
+
     </style>
     """,
     unsafe_allow_html=True
 )
+
 
 st.markdown(
         """
