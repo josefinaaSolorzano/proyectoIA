@@ -145,7 +145,7 @@ st.markdown(
     """
     <style>
     .custom-button {
-        background-color: #4CAF50; /* Color de fondo */
+        background-color: #FF6347; /* Color de fondo */
         border: none;
         color: white; /* Color de texto */
         padding: 15px 32px;
