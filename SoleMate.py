@@ -202,7 +202,7 @@ img_to_process = input_img or camera_img
 
 if img_to_process is not None:
     if st.button('Just do it!'):
-        st.toast('Just do it!', icon='👟')
+        st.toast(icon='👟')
         
         col1, col2 = st.columns([1 , 2])
 
