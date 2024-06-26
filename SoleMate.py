@@ -160,8 +160,8 @@ st.markdown(
 
 # Definir tus recomendaciones y funciones de clasificación aquí
 recommendations = {
-    "etiqueta1": ("Texto del botón 1", "URL1"),
-    "etiqueta2": ("Texto del botón 2", "URL2"),
+    "Compra este modelo!": ("Compra este modelo!", "https://www.nike.com.ar/air%20max?_q=air%20max&map=ft"),
+    "Our SoleMates": ("Conoce más!", "https://solematearg.streamlit.app/Our_SoleMates"),
     # Agrega más según sea necesario
 }
 
