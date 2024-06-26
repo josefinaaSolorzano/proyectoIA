@@ -222,7 +222,7 @@ if img_to_process is not None:
 st.container(height=30, border=False)
 
 video_file = open('NikeComercial.mp4', 'rb')
-video_bytes = video_file.read(autoplay=True, muted=True)
+video_bytes = video_file.read()
 st.video(video_bytes, start_time=0)                
 
 # Título de la aplicación
