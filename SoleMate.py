@@ -29,7 +29,6 @@ st.markdown(
     [data-testid="stSidebar"] h3, 
     [data-testid="stSidebar"] h4, 
     [data-testid="stSidebar"] h5, 
-    [data-testid="stSidebar"] h6, 
     [data-testid="stSidebar"] p, 
     [data-testid="stSidebar"] span, 
     [data-testid="stSidebar"] .stButton>button {
@@ -184,11 +183,18 @@ if img_to_process is not None:
 
                 recommendation = recommendations.get(label.strip(), "No hay recomendación disponible para esta clase.")
                 if recommendation:
-                    st.markdown(f'<a href="{recommendation[1]}" target="_blank"><button class="custom-button">{recommendation[0]}</button></a>', unsafe_allow_html=True)
+                    st.markdown(
+                        f"""
+                        <div style="display: flex; gap: 10px;">
+                            <a href="{recommendation[1]}" target="_blank"><button class="custom-button">{recommendation[0]}</button></a>
+                            <a href="proyectoIA/pages/Our_SoleMates.py" target="_blank"><button class="custom-button">Conoce más!</button></a>
+                        </div>
+                        """, 
+                        unsafe_allow_html=True
+                    )
 
 st.container(height=30, border=False)
 
-st.container(height=30, border=False)
 
 video_file = open('NikeComercial.mp4', 'rb')
 video_bytes = video_file.read()
