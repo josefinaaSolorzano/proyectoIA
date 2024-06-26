@@ -21,6 +21,9 @@ st.markdown(
         background-color: black !important;
         color: white !important;
     }
+    [data-testid="stSidebar"] {
+        background-color: #000000; /* Color negro */
+    }
     .st-1, .st-3, .st-4, .st-5, .st-6, .st-7, .st-8, .st-9, .st-10, .st-11, .st-12, .st-13, .st-14 {
         background-color: black !important;
         color: white !important;
