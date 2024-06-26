@@ -157,14 +157,14 @@ if option == "Cargar imagen":
 elif option == "Tomar foto":
     camera_img = st.camera_input("Toma una foto")
 
-# Dictionary of recommendations for each class
 recommendations = {
-    "0 Air Forces": st.link_button('Comprar este modelo', 'https://www.nike.com.ar/air%201%20force?_q=air%201%20force&map=ft', type='primary'),
-    "1 Air Jordans":st.link_button('Comprar este modelo', 'https://www.nike.com.ar/nike/air-jordan-1?map=category-1,icono', type='primary'),
-    "2 Air Maxes": st.link_button('Comprar este modelo', 'https://www.nike.com.ar/air%20max?_q=air%20max&map=ft', type='primary'),
-    "3 Cleats":st.link_button('Comprar este modelo', 'https://www.nike.com.ar/nike/hombre/calzado/botines?map=category-1,category-2,category-3,tipo-de-producto', type='primary'),
-    "4 Dunks":st.link_button('Comprar este modelo', 'https://www.nike.com.ar/nike/hombre/calzado/dunk?map=category-1,category-2,category-3,icono', type='primary'),
+    "0 Air Forces": ('Comprar este modelo', 'https://www.nike.com.ar/air%201%20force?_q=air%201%20force&map=ft'),
+    "1 Air Jordans": ('Comprar este modelo', 'https://www.nike.com.ar/nike/air-jordan-1?map=category-1,icono'),
+    "2 Air Maxes": ('Comprar este modelo', 'https://www.nike.com.ar/air%20max?_q=air%20max&map=ft'),
+    "3 Cleats": ('Comprar este modelo', 'https://www.nike.com.ar/nike/hombre/calzado/botines?map=category-1,category-2,category-3,tipo-de-producto'),
+    "4 Dunks": ('Comprar este modelo', 'https://www.nike.com.ar/nike/hombre/calzado/dunk?map=category-1,category-2,category-3,icono')
 }
+
 
 # Determinar cuál imagen usar
 img_to_process = input_img or camera_img
