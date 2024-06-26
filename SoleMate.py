@@ -1,9 +1,9 @@
 import streamlit as st
+from keras.models import load_model
 from PIL import Image, ImageOps
 import numpy as np
 import pandas as pd
 import pydeck as pdk
-from keras.models import load_model
 
 st.set_page_config(
     page_title="SoleMate",
@@ -11,7 +11,6 @@ st.set_page_config(
     layout="wide"
 )
 
-# Estilo CSS personalizado para el botón de "Comprar este modelo"
 st.markdown(
     """
     <style>
@@ -41,16 +40,13 @@ st.markdown(
         color: white !important;
     }
     .stButton>button {
-        background-color: #E64A45 !important;
+        background-color: black !important;
         color: white !important;
-        border: none !important;
-        border-radius: 10px;
-        padding: 10px 20px;
-        font-size: 16px;
-        font-weight: bold;
+        border: 1px solid white !important;
     }
     .stButton>button:hover {
-        background-color: #FF6F61 !important;
+        background-color: #555555 !important;
+        color: white !important;
     }
     [data-testid="stFileUploadDropzone"] div div {
         color: black !important;
@@ -91,7 +87,7 @@ st.subheader('Encontrá tu par perfecto', divider='red')
 
 st.container(height=30, border=False)
 
-col1, col2 = st.columns([1,1])
+col1, col2 = st.columns([1, 1])
 
 with col1:
     container = st.container(border=False)
@@ -105,7 +101,7 @@ with col2:
             """
             <div style="text-align: center;">
                 <h2>¿Qué es SoleMate?</h2>
-                <p>Somos una app que te permite encontrar tu par ideal de la manera más rápida y fácil posible.</p>
+                <p>Somos una app que te permite encontrar tu par ideal de la manera más rápida y fácil posible.<p>
                 <p>Junto con Nike, diseñamos una app que te permite conocer sus modelos de una manera nunca antes vista. ¿Qué esperas para encontrar tu <i>SoleMate</i>?</p>
             </div>
             """,
@@ -139,29 +135,6 @@ recommendations = {
     "3 Cleats": ('Comprar este modelo', 'https://www.nike.com.ar/nike/hombre/calzado/botines?map=category-1,category-2,category-3,tipo-de-producto'),
     "4 Dunks": ('Comprar este modelo', 'https://www.nike.com.ar/nike/hombre/calzado/dunk?map=category-1,category-2,category-3,icono')
 }
-
-# Estilos CSS
-st.markdown(
-    """
-    <style>
-    .custom-button {
-        background-color: #FF6347; /* Color de fondo */
-        border: none;
-        color: white; /* Color de texto */
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 8px; /* Borde redondeado */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 img_to_process = input_img or camera_img
 
 if img_to_process is not None:
