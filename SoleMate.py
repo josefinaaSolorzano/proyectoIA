@@ -193,7 +193,7 @@ if img_to_process is not None:
                     )
 
                     if st.button("Our SoleMates"):
-                        st.switch_page("pages/Our_SoleMates.py")
+                        st.switch_page("proyectoIA\pages\Our_SoleMates.py")
 
 st.container(height=30, border=False)
 
