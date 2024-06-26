@@ -17,7 +17,7 @@ st.markdown(
         background-color: black;
         color: white;
     }
-    h1, h2, h3, h4, h5, h6, p, div, span, .stButton>button, .stFileUploader>label, .stCameraInput>label {
+    h1, h2, h3, h4, h5, h6, p, div, span, .stButton>button,  {
         color: white !important;
     }
     .stSidebar, .stSidebar > div {
