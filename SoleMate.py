@@ -187,11 +187,13 @@ if img_to_process is not None:
                         f"""
                         <div style="display: flex; gap: 10px;">
                             <a href="{recommendation[1]}" target="_blank"><button class="custom-button">{recommendation[0]}</button></a>
-                            <a href="proyectoIA/pages/Our_SoleMates.py" target="_blank"><button class="custom-button">Conoce más!</button></a>
                         </div>
                         """, 
                         unsafe_allow_html=True
                     )
+
+                    if st.button("Our SoleMates"):
+                        st.switch_page("pages/Our_SoleMates.py")
 
 st.container(height=30, border=False)
 
