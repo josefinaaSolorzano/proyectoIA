@@ -192,8 +192,7 @@ if img_to_process is not None:
                         """, 
                         unsafe_allow_html=True
                     )
-                    if st.button("Our SoleMates"):
-                        st.session_state.page = "Our_SoleMates.py"
+                    st.page_link("pages/Our_SoleMates.py", label="Our SoleMates")
 
 st.container(height=30, border=False)
 
