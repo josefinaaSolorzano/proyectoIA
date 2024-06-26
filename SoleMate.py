@@ -158,6 +158,13 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# Definir tus recomendaciones y funciones de clasificación aquí
+recommendations = {
+    "etiqueta1": ("Texto del botón 1", "URL1"),
+    "etiqueta2": ("Texto del botón 2", "URL2"),
+    # Agrega más según sea necesario
+}
+
 img_to_process = input_img or camera_img
 
 if img_to_process is not None:
@@ -182,8 +189,8 @@ if img_to_process is not None:
 
                 st.success(label2)
 
-                recommendation = recommendations.get(label.strip(), "No hay recomendación disponible para esta clase.")
-                if recommendation:
+                recommendation = recommendations.get(label.strip(), ("No hay recomendación disponible para esta clase.", ""))
+                if recommendation[1]:
                     st.markdown(
                         f"""
                         <div style="display: flex; gap: 10px;">
@@ -192,8 +199,7 @@ if img_to_process is not None:
                         """, 
                         unsafe_allow_html=True
                     )
-                    if st.button("Our SoleMates"):
-                        st.switch_page("pages/Our_SoleMates.py")
+                    
 
 st.container(height=30, border=False)
 
