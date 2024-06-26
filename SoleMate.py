@@ -193,7 +193,7 @@ if img_to_process is not None:
                         unsafe_allow_html=True
                     )
                     if st.button("Our SoleMates"):
-                        mp.switch_page("Our SoleMates")
+                        st.session_state.page = "Our SoleMates"
 
 st.container(height=30, border=False)
 
