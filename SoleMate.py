@@ -19,42 +19,37 @@ st.markdown(
         background-color: black;
         color: white;
     }
-    .css-1d391kg, .stSidebar, .stSidebar > div, .css-1lcbmhc, .css-17lntkn, .css-1adrfps, .css-1oyv4s9, .css-1v3fvcr {
+    .stSidebar, .stSidebar > div {
         background-color: black !important;
         color: white !important;
     }
-    h1, h2, h3, h4, h5, h6, p, div, span, .stButton>button, .stFileUploader>label, .stCameraInput>label {
-        color: white !important;
-    }
-    .stButton>button, .stFileUploader, .stCameraInput {
-        background-color: #333333;
-        border: none;
-        color: white !important;
-    }
-    .stRadio>label, .stTextInput>label {
-        color: white !important;
-    }
-    .stRadio>div>div, .stSelectbox>div>div, .stSelectbox>div>ul>li, .stSelectbox>div>ul>li>div {
-        background-color: #333333;
-        color: white !important;
-    }
-    .stTextInput>div>input, .stTextArea>div>textarea, .stNumberInput>div>input, .stDateInput>div>input, .stTimeInput>div>input {
-        background-color: #333333;
-        color: white !important;
-    }
-    .css-1r6slb0 {
-        color: white !important;
-    }
-    .stContainer {
-        background-color: black !important;
-    }
-    .css-1d391kg, .css-1r3pliv {
+    .st-1, .st-3, .st-4, .st-5, .st-6, .st-7, .st-8, .st-9, .st-10, .st-11, .st-12, .st-13, .st-14 {
         background-color: black !important;
         color: white !important;
     }
-
-    [data-testid="stSidebar"] {
-        background-color: #000000; /* Color negro */
+    .st-1:hover, .st-3:hover, .st-4:hover, .st-5:hover, .st-6:hover, .st-7:hover, .st-8:hover, .st-9:hover, .st-10:hover, .st-11:hover, .st-12:hover, .st-13:hover, .st-14:hover {
+        background-color: #555555 !important;
+    }
+    .stSelectbox>div>div {
+        background-color: black !important;
+        color: white !important;
+    }
+    .stSelectbox>div>ul {
+        background-color: black !important;
+        color: white !important;
+    }
+    .stSelectbox>div>ul>li {
+        background-color: black !important;
+        color: white !important;
+    }
+    .stButton>button {
+        background-color: black !important;
+        color: white !important;
+        border: 1px solid white !important;
+    }
+    .stButton>button:hover {
+        background-color: #555555 !important;
+        color: white !important;
     }
     </style>
     """,
