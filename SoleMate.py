@@ -40,7 +40,7 @@ st.markdown(
         background-color: black !important;
         color: white !important;
     }
-    .stButton>button, button class {
+    .stButton>button {
         background-color: #E64A45 !important;
         color: white !important;
         border: none !important;
@@ -139,6 +139,28 @@ recommendations = {
     "3 Cleats": ('Comprar este modelo', 'https://www.nike.com.ar/nike/hombre/calzado/botines?map=category-1,category-2,category-3,tipo-de-producto'),
     "4 Dunks": ('Comprar este modelo', 'https://www.nike.com.ar/nike/hombre/calzado/dunk?map=category-1,category-2,category-3,icono')
 }
+
+# Estilos CSS
+st.markdown(
+    """
+    <style>
+    .custom-button {
+        background-color: #4CAF50; /* Color de fondo */
+        border: none;
+        color: white; /* Color de texto */
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px; /* Borde redondeado */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 img_to_process = input_img or camera_img
 
