@@ -40,7 +40,7 @@ st.markdown(
         background-color: black !important;
         color: white !important;
     }
-    .stButton>button {
+    .stButton>button, button class {
         background-color: #E64A45 !important;
         color: white !important;
         border: none !important;
