@@ -141,7 +141,7 @@ st.markdown(
     """
     <style>
     .custom-button {
-        background-color: #4CAF50; /* Color de fondo */
+        background-color: #FF6347; /* Color de fondo */
         border: none;
         color: white; /* Color de texto */
         padding: 15px 32px;
@@ -149,7 +149,7 @@ st.markdown(
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
-        margin: 4px 2px;
+        margin: 3px 1px;
         cursor: pointer;
         border-radius: 8px; /* Borde redondeado */
     }
