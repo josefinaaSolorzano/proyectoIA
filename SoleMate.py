@@ -195,8 +195,33 @@ if img_to_process is not None:
                 # Mostrar recomendación basada en la clase
                 recommendation = recommendations.get(label.strip(), "No hay recomendación disponible para esta clase.")
                 if recommendation:
-                    st.markdown(f'<a href="{recommendation[1]}" target="_blank"><button>{recommendation[0]}</button></a>', unsafe_allow_html=True)
+                    st.markdown(f'<a href="{recommendation[1]}" target="_blank"><button class= "styled-button">{recommendation[0]}</button></a>', unsafe_allow_html=True)
 
+                    
+# Estilos CSS
+st.markdown(
+    """
+    <style>
+    .styled-button {
+        background-color: #4CAF50; /* Color de fondo */
+        border: none;
+        color: white; /* Color de texto */
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px; /* Borde redondeado */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Botón HTML con clase CSS
+#st.markdown('<button class="styled-button">Botón Estilizado</button>', unsafe_allow_html=True)
 st.container(height=30, border=False)
 
 video_file = open('NikeComercial.mp4', 'rb')
