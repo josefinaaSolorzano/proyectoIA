@@ -56,6 +56,14 @@ st.markdown(
     h1, h2, h3, h4, h5, h6, p, .stButton>button {
         color: white !important;
     }
+    /* Estilo específico para la sección de carga de imágenes */
+    [data-testid="stFileUploadDropzone"] div div {
+        color: black !important;
+    }
+    /* Estilo específico para la sección de cámara */
+    [data-testid="stCameraInput"] div div {
+        color: black !important;
+    }
     </style>
     """,
     unsafe_allow_html=True
