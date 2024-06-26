@@ -4,6 +4,7 @@ from PIL import Image, ImageOps
 import numpy as np
 import pandas as pd
 import pydeck as pdk
+import streamlit_multipage as mp
 
 st.set_page_config(
     page_title="SoleMate",
@@ -191,9 +192,8 @@ if img_to_process is not None:
                         """, 
                         unsafe_allow_html=True
                     )
-
                     if st.button("Our SoleMates"):
-                        st.switch_page("proyectoIA\pages\Our_SoleMates.py")
+                        mp.switch_page("Our SoleMates")
 
 st.container(height=30, border=False)
 
