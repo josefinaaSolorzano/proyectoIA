@@ -128,13 +128,7 @@ if option == "Cargar imagen":
 elif option == "Tomar foto":
     camera_img = st.camera_input("Toma una foto")
 
-recommendations = {
-    "0 Air Forces": ('Comprar este modelo', 'https://www.nike.com.ar/air%201%20force?_q=air%201%20force&map=ft'),
-    "1 Air Jordans": ('Comprar este modelo', 'https://www.nike.com.ar/nike/air-jordan-1?map=category-1,icono'),
-    "2 Air Maxes": ('Comprar este modelo', 'https://www.nike.com.ar/air%20max?_q=air%20max&map=ft'),
-    "3 Cleats": ('Comprar este modelo', 'https://www.nike.com.ar/nike/hombre/calzado/botines?map=category-1,category-2,category-3,tipo-de-producto'),
-    "4 Dunks": ('Comprar este modelo', 'https://www.nike.com.ar/nike/hombre/calzado/dunk?map=category-1,category-2,category-3,icono')
-}
+
 
 # Estilos CSS
 st.markdown(
@@ -167,38 +161,45 @@ recommendations = {
 
 img_to_process = input_img or camera_img
 
-if img_to_process is not None:
-    if st.button('Just do it!'):
-        st.toast('Just do it!', icon='👟')
-        
-        col1, col2 = st.columns([1 , 2])
+page = st.session_state.get('page', 'main')
 
-        with col1:
-            st.info("Imagen cargada")
-            st.image(img_to_process, use_column_width=True)
+if page == 'main':
+    img_to_process = st.file_uploader("Sube una imagen de tus zapatillas:", type=["jpg", "jpeg", "png"])
 
-        with col2:
-            st.info("Tu par ideal es...")
-            image_file = Image.open(img_to_process)
+    if img_to_process is not None:
+        if st.button('Just do it!'):
+            st.info('Just do it! 👟')
+            
+            col1, col2 = st.columns([1, 2])
 
-            with st.spinner('Analizando imagen...'):
-                label, confidence_score = classify_fruit(image_file)
+            with col1:
+                st.info("Imagen cargada")
+                st.image(img_to_process, use_column_width=True)
 
-                label_description = label.split(maxsplit=1)[1]
-                label2 = label_description
+            with col2:
+                st.info("Tu par ideal es...")
+                image_file = Image.open(img_to_process)
 
-                st.success(label2)
+                with st.spinner('Analizando imagen...'):
+                    label, confidence_score = classify_fruit(image_file)
 
-                recommendation = recommendations.get(label.strip(), ("No hay recomendación disponible para esta clase.", ""))
-                if recommendation[1]:
-                    st.markdown(
-                        f"""
-                        <div style="display: flex; gap: 10px;">
-                            <a href="{recommendation[1]}" target="_blank"><button class="custom-button">{recommendation[0]}</button></a>
-                        </div>
-                        """, 
-                        unsafe_allow_html=True
-                    )
+                    label_description = label.split(maxsplit=1)[1]
+
+                    st.success(label_description)
+
+                    recommendation = recommendations.get(label.strip(), ("No hay recomendación disponible para esta clase.", ""))
+                    if recommendation[1]:
+                        if st.button(recommendation[0]):
+                            st.session_state['page'] = 'Our_solemates'
+
+elif page == 'Our_solemates':
+    st.title("Our SoleMates")
+    st.write("Aquí puedes mostrar la página 'Our SoleMates'")
+    st.write("Puedes colocar aquí toda la información y componentes necesarios para esta página.")
+    
+    # Agregar un botón para volver a la página principal
+    if st.button("Volver"):
+        st.session_state['page'] = 'main'
                     
 
 st.container(height=30, border=False)

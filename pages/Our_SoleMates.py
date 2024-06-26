@@ -17,24 +17,32 @@ st.markdown(
         background-color: black;
         color: white;
     }
+    h1, h2, h3, h4, h5, h6, p, div, span, .stButton>button {
+        color: white !important;
+    }
     .stSidebar, .stSidebar > div {
         background-color: black !important;
+        color: white !important;
     }
     [data-testid="stSidebar"] {
         background-color: #000000; /* Color negro */
     }
-    [data-testid="stSidebar"] h1, 
-    [data-testid="stSidebar"] h2, 
-    [data-testid="stSidebar"] h3, 
-    [data-testid="stSidebar"] h4, 
-    [data-testid="stSidebar"] h5, 
-    [data-testid="stSidebar"] h6, 
-    [data-testid="stSidebar"] p, 
-    [data-testid="stSidebar"] span, 
-    [data-testid="stSidebar"] .stButton>button {
+    .st-1, .st-3, .st-4, .st-5, .st-6, .st-7, .st-8, .st-9, .st-10, .st-11, .st-12, .st-13, .st-14 {
+        background-color: black !important;
         color: white !important;
     }
+    .st-1:hover, .st-3:hover, .st-4:hover, .st-5:hover, .st-6:hover, .st-7:hover, .st-8:hover, .st-9:hover, .st-10:hover, .st-11:hover, .st-12:hover, .st-13:hover, .st-14:hover {
+        background-color: #555555 !important;
+    }
     .stSelectbox>div>div {
+        background-color: black !important;
+        color: white !important;
+    }
+    .stSelectbox>div>ul {
+        background-color: black !important;
+        color: white !important;
+    }
+    .stSelectbox>div>ul>li {
         background-color: black !important;
         color: white !important;
     }
@@ -45,13 +53,6 @@ st.markdown(
     }
     .stButton>button:hover {
         background-color: #555555 !important;
-        color: white !important;
-    }
-    /* Estilo específico para la sección de carga de imágenes */
-    [data-testid="stFileUploadDropzone"] div div {
-        color: black !important;
-    }
-    h1, h2, h3, h4, h5, h6, p, .stButton>button {
         color: white !important;
     }
     </style>
@@ -147,3 +148,11 @@ with st.container(border=True):
 
 with st.sidebar:
     st.container(height=30, border=False)
+
+    recommendations = {
+    "0 Air Forces": ('Comprar este modelo', 'https://www.nike.com.ar/air%201%20force?_q=air%201%20force&map=ft'),
+    "1 Air Jordans": ('Comprar este modelo', 'https://www.nike.com.ar/nike/air-jordan-1?map=category-1,icono'),
+    "2 Air Maxes": ('Comprar este modelo', 'https://www.nike.com.ar/air%20max?_q=air%20max&map=ft'),
+    "3 Cleats": ('Comprar este modelo', 'https://www.nike.com.ar/nike/hombre/calzado/botines?map=category-1,category-2,category-3,tipo-de-producto'),
+    "4 Dunks": ('Comprar este modelo', 'https://www.nike.com.ar/nike/hombre/calzado/dunk?map=category-1,category-2,category-3,icono')
+}
