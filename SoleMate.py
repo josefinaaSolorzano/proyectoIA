@@ -109,41 +109,11 @@ def classify_fruit(img):
 
 # Dictionary of recommendations for each class
 recommendations = {
-    "0 Air Forces": """
-        *Comodidad*: Excelente amortiguación gracias a la unidad Air en el talón, proporcionando comodidad para uso diario.\n
-        *Talles*: Disponibles en una amplia gama de talles para hombres, mujeres y niños.\n
-        *Colores*: Variedad de colores y ediciones limitadas, desde el clásico blanco y negro hasta combinaciones de colores vibrantes y colaboraciones con artistas.\n
-        *Uso*: Perfectas para el uso diario, moda urbana y casual.\n
-        *Perfil del Usuario*: Ideal para jóvenes y adultos que buscan un estilo casual y moderno, amantes de la moda urbana y coleccionistas de zapatillas.
-    """,
-    "1 Air Jordans": """
-        *Comodidad*: Diseñadas para ofrecer soporte y comodidad durante el juego de baloncesto, con tecnología de amortiguación avanzada.\n
-        *Talles*: Disponibles en talles para hombres, mujeres y niños.\n
-        *Colores*: Diversidad de colores y ediciones limitadas, con combinaciones que suelen contar con la participación del propio Michael Jordan.\n
-        *Uso*: Originalmente para baloncesto, ahora también usadas como zapatillas de moda.\n
-        *Perfil del Usuario*: Apreciadas por jugadores de baloncesto, coleccionistas y aficionados a la moda deportiva.
-    """,
-    "2 Air Maxes": """
-        *Comodidad*: Excelente amortiguación y soporte gracias a la unidad Air Max, ideales para largas caminatas y uso diario.\n
-        *Talles*: Disponibles en talles para toda la familia.\n
-        *Colores*: Amplia gama de colores y estilos, desde tonos neutros hasta combinaciones audaces.\n
-        *Uso*: Perfectas para el uso diario, running y actividades físicas ligeras.\n
-        *Perfil del Usuario*: Adecuadas para personas activas que valoran la comodidad y el estilo deportivo, tanto jóvenes como adultos.
-    """,
-    "3 Cleats": """
-        *Comodidad*: Sujeción firme y diseño anatómico para un ajuste perfecto, con tecnologías que proporcionan estabilidad y comodidad durante el juego.\n
-        *Talles*: Disponibles en talles para hombres, mujeres y niños.\n
-        *Colores*: Variedad de colores adaptados a los equipos y gustos personales.\n
-        *Uso*: Específicas para deportes de campo como fútbol, béisbol y fútbol americano.\n
-        *Perfil del Usuario*: Deportistas que practican deportes de campo y buscan rendimiento, durabilidad y soporte en su calzado.
-    """,
-    "4 Dunks": """
-        *Comodidad*: Suela acolchada y estructura resistente, diseñada inicialmente para el baloncesto y adaptada para el skateboard.\n
-        *Talles*: Disponibles en una amplia variedad de talles para hombres y mujeres.\n
-        *Colores*: Gama extensa de colores y ediciones especiales, con colaboraciones frecuentes que añaden valor coleccionable.\n
-        *Uso*: Popular en el skateboard, moda urbana y uso casual.\n
-        *Perfil del Usuario*: Skaters, entusiastas de la moda urbana y coleccionistas de zapatillas exclusivas.
-    """,
+    "0 Air Forces": st.link_button('Comprar este modelo', 'https://www.nike.com.ar/air%201%20force?_q=air%201%20force&map=ft', type='primary'),
+    "1 Air Jordans":st.link_button('Comprar este modelo', 'https://www.nike.com.ar/nike/air-jordan-1?map=category-1,icono', type='primary'),
+    "2 Air Maxes": st.link_button('Comprar este modelo', 'https://www.nike.com.ar/air%20max?_q=air%20max&map=ft', type='primary'),
+    "3 Cleats":st.link_button('Comprar este modelo', 'https://www.nike.com.ar/nike/hombre/calzado/botines?map=category-1,category-2,category-3,tipo-de-producto', type='primary'),
+    "4 Dunks":st.link_button('Comprar este modelo', 'https://www.nike.com.ar/nike/hombre/calzado/dunk?map=category-1,category-2,category-3,icono', type='primary'),
 }
 
 
@@ -202,7 +172,7 @@ img_to_process = input_img or camera_img
 
 if img_to_process is not None:
     if st.button('Just do it!'):
-        st.toast(icon='👟')
+        st.toast('Just do it!', icon='👟')
         
         col1, col2 = st.columns([1 , 2])
 
