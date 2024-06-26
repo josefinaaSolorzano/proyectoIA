@@ -161,6 +161,7 @@ recommendations = {
 
 img_to_process = input_img or camera_img
 
+# Variable para gestionar el estado de la página
 page = st.session_state.get('page', 'main')
 
 if page == 'main':
@@ -187,12 +188,12 @@ if page == 'main':
 
                     st.success(label_description)
 
-                    recommendation = recommendations.get(label.strip(), ("No hay recomendación disponible para esta clase.", ""))
-                    if recommendation[1]:
+                    recommendation = recommendations.get(label.strip())
+                    if recommendation:
                         if st.button(recommendation[0]):
-                            st.session_state['page'] = 'Our_solemates'
+                            st.session_state['page'] = 'our_solemates'
 
-elif page == 'Our_solemates':
+elif page == 'our_solemates':
     st.title("Our SoleMates")
     st.write("Aquí puedes mostrar la página 'Our SoleMates'")
     st.write("Puedes colocar aquí toda la información y componentes necesarios para esta página.")
@@ -200,7 +201,6 @@ elif page == 'Our_solemates':
     # Agregar un botón para volver a la página principal
     if st.button("Volver"):
         st.session_state['page'] = 'main'
-                    
 
 st.container(height=30, border=False)
 
