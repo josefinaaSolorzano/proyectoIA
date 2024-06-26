@@ -29,7 +29,7 @@ st.markdown(
         border: none;
         color: white !important;
     }
-    .stRadio>label, .stSelectbox>label, .stTextInput>label {
+    .stRadio>label, .stTextInput>label {
         color: white !important;
     }
     .stRadio>div>div, .stSelectbox>div>div, .stSelectbox>div>ul>li, .stSelectbox>div>ul>li>div {
@@ -54,14 +54,6 @@ st.markdown(
     [data-testid="stSidebar"] {
         background-color: #000000; /* Color negro */
     }
-    .st-1, .st-3 {
-        background-color: black !important;
-        color: white !important;
-    }
-    .st-1:hover, .st-3:hover, .st-4:hover, .st-5:hover {
-        background-color: #555555 !important;
-    }
-
     </style>
     """,
     unsafe_allow_html=True
