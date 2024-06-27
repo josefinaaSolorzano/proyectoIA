@@ -224,11 +224,9 @@ st.markdown(
 #st.markdown('<button class="styled-button">Botón Estilizado</button>', unsafe_allow_html=True)
 st.container(height=30, border=False)
 
-    
-
-VIDEO_URL = "https://youtu.be/MFbmOYkW6d8?si=m06xnotpZKdBYtBJ"
-    
-st.video(VIDEO_URL, format="video/mp4", start_time=0, subtitles=None, end_time=None, loop=False, autoplay=True, muted=True)
+video_file = open('NikeComercial.mp4', 'rb')
+video_bytes = video_file.read()
+st.video(video_bytes, start_time=0, loop=True, autoplay=True, muted=True)     
 
 # Título de la aplicación
 st.title('Mapa de Tiendas Nike en Argentina')
