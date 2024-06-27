@@ -97,17 +97,6 @@ st.markdown(
 st.title('¿Ya tenes tu par?')
 st.subheader('Hacé click en los modelos para encontrar tu SoleMate')
 
-# Definir una función para mostrar el contenido con imagen y texto al costado
-def mostrar_contenido(titulo, imagen_path, texto):
-    col1, col2 = st.columns(2)
-
-    with col1:
-        st.image(imagen_path)
-
-    with col2:
-        st.header(titulo)
-        st.markdown(texto)
-
 # Crear pestañas para mostrar el contenido
 tabs = st.tabs(["Air Forces", "Air Maxes", "Jordans", "Cleats", "Dunks"])
 
