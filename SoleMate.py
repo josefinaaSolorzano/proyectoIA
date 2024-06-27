@@ -127,7 +127,7 @@ with col2:
             """
             <div style="text-align: center;">
                 <h2>¿Qué es SoleMate?</h2>
-                <p>Somos una app que te permite encontrar tu par ideal de la manera más rápida y fácil posible."<p>
+                <p>Somos una app que te permite encontrar tu par ideal de la manera más rápida y fácil posible.<p>
                 <p>Junto con Nike, diseñamos una app que te permite conocer sus modelos de una manera nunca antes vista. ¿Qué esperas para encontrar tu <i>SoleMate</i>?</p>
             </div>
             """,

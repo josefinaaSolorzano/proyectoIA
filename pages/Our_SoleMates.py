@@ -3,46 +3,60 @@ from PIL import Image, ImageOps
 import numpy as np
 import streamlit as st
 
-st.set_page_config(
-    page_title="OurSoleMate",
-    page_icon="logoNike.ico",  # Asegúrate de que la ruta al archivo de imagen sea correcta
-    layout="wide"
-)
-
-# Estilo CSS personalizado para el fondo negro y texto blanco
 st.markdown(
     """
     <style>
+    .css-1l02z1r {
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        text-align: justify;
+        padding: 20px;
+    }
+    .stTabs [role="tablist"] {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .stTabs [role="tab"] {
+        flex-grow: 1;
+        text-align: center;
+    }
+    .centered-header {
+        text-align: center;
+    }
+    .align-center {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+    .full-height {
+        height: 100vh;
+    }
     body, .stApp {
         background-color: black;
         color: white;
     }
-    h1, h2, h3, h4, h5, h6, p, div, span, .stButton>button {
-        color: white !important;
-    }
     .stSidebar, .stSidebar > div {
         background-color: black !important;
-        color: white !important;
     }
     [data-testid="stSidebar"] {
         background-color: #000000; /* Color negro */
     }
-    .st-1, .st-3, .st-4, .st-5, .st-6, .st-7, .st-8, .st-9, .st-10, .st-11, .st-12, .st-13, .st-14 {
-        background-color: black !important;
+    [data-testid="stSidebar"] h1, 
+    [data-testid="stSidebar"] h2, 
+    [data-testid="stSidebar"] h3, 
+    [data-testid="stSidebar"] h4, 
+    [data-testid="stSidebar"] h5, 
+    [data-testid="stSidebar"] h6, 
+    [data-testid="stSidebar"] p, 
+    [data-testid="stSidebar"] span, 
+    [data-testid="stSidebar"] .stButton>button {
         color: white !important;
-    }
-    .st-1:hover, .st-3:hover, .st-4:hover, .st-5:hover, .st-6:hover, .st-7:hover, .st-8:hover, .st-9:hover, .st-10:hover, .st-11:hover, .st-12:hover, .st-13:hover, .st-14:hover {
-        background-color: #555555 !important;
     }
     .stSelectbox>div>div {
-        background-color: black !important;
-        color: white !important;
-    }
-    .stSelectbox>div>ul {
-        background-color: black !important;
-        color: white !important;
-    }
-    .stSelectbox>div>ul>li {
         background-color: black !important;
         color: white !important;
     }
@@ -55,104 +69,274 @@ st.markdown(
         background-color: #555555 !important;
         color: white !important;
     }
+    .stToast {
+        background-color: #555555 !important;
+        color: black !important;
+    }
+    /* Estilo específico para la sección de carga de imágenes */
+    [data-testid="stFileUploadDropzone"] div div {
+        color: black !important;
+    }
+    h1, h2, h3, h4, h5, h6, p, .stButton>button {
+        color: white !important;
+    }
+    /* Estilo específico para la sección de carga de imágenes */
+    [data-testid="stFileUploadDropzone"] div div {
+        color: black !important;
+    }
+    /* Estilo específico para la sección de cámara */
+    [data-testid="stCameraInput"] div div {
+        color: black !important;
+    }
+
     </style>
     """,
     unsafe_allow_html=True
 )
 
-st.markdown(
-        """
-        <style>
-        .css-1l02z1r {
-            font-size: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            text-align: justify;
-            padding: 20px;
-        }
-        
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
-
 st.title('¿Ya tenes tu par?')
-st.subheader('Hacé click en los modelos para encontrar tu SoleMate', divider='red')
-
-
-# Definir una función para mostrar el contenido de cada contenedor
+st.subheader('Hacé click en los modelos para encontrar tu SoleMate')
 
 # Definir una función para mostrar el contenido con imagen y texto al costado
-def mostrar_contenido(titulo, imagen_path, enlace, texto):
-    # Dividir el contenedor en dos columnas
-    col1, col2 = st.columns([1.5 , 2.5])  # La primera columna ocupa 1 unidad y la segunda 3 unidades
+def mostrar_contenido(titulo, imagen_path, texto):
+    col1, col2 = st.columns(2)
 
-    # Mostrar la imagen en la primera columna
     with col1:
-        st.image(imagen_path, width=200)
+        st.image(imagen_path)
 
-    # Mostrar el texto al costado de la imagen en la segunda columna
     with col2:
         st.header(titulo)
         st.markdown(texto)
-        if st.button("Haz clic aquí para ir a la página", key=f"button_{titulo}", type="primary"):
-            st.markdown(f'<a href="{enlace}" target="_blank">Enlace externo</a>', unsafe_allow_html=True)
-     
+
+# Crear pestañas para mostrar el contenido
+tabs = st.tabs(["Air Forces", "Air Maxes", "Jordans", "Cleats", "Dunks"])
 
 
-# Crear los contenedores y mostrar el contenido con imagen y texto al costado
-with st.container(border=True):
-    mostrar_contenido(
-        "Air Forces",
-        "AirForces.jpeg",
-        "https://www.nike.com.ar/air%201%20force?_q=air%201%20force&map=ft",
-        "Las Nike Air Force 1 son un ícono de la moda urbana desde su lanzamiento en 1982. Originalmente diseñadas como zapatillas de baloncesto, han evolucionado para convertirse en una pieza esencial del streetwear."
-    )
+#TAB AIRFORCES
+with tabs[0]:
+    st.markdown('<h2 class="centered-header">Air Forces</h2', unsafe_allow_html=True)
+    st.markdown('<p class="centered-header">El modelo icónico de zapatillas Nike, conocidas por su diseño y versatilidad</p>', unsafe_allow_html=True)
+   
+    col1, col2, col3= st.columns([1.4,1,1.4])
+    with col1:
+        st.container(border = False)
+    with col2: 
+        st.link_button('Comprar este modelo', 'https://www.nike.com.ar/air%201%20force?_q=air%201%20force&map=ft', type='primary')
+    with col3: 
+        st.container(border = False)
     
+    st.container(height=20, border=False)
+    
+    video_file = open('AirForces.mp4', 'rb')
+    video_bytes = video_file.read()
+    st.video(video_bytes)
+    
+    st.container(border=False, height=20)
 
-with st.container(border=True):
-    mostrar_contenido(
-        "Air Maxes",
-        "AirMaxes.jpg",
-        "https://www.nike.com.ar/air%20max?_q=air%20max&map=ft",
-        "Las Nike Air Max son famosas por su unidad de aire visible en la suela, introducida por primera vez en 1987. Han evolucionado con diferentes modelos y tecnologías a lo largo de los años."
-    )
+    col1, col2 = st.columns([1.5,2])
+    with col1:
+        st.image("AirForcesT1.jpg")
 
-with st.container(border=True):
-    mostrar_contenido(
-        "Jordans",
-        "Jordans.jpg",
-        "https://www.nike.com.ar/nike/air-jordan-1?map=category-1,icono",
-        "Las Air Jordans son una línea de zapatillas creada en colaboración con el legendario jugador de baloncesto Michael Jordan. Cada modelo tiene un diseño único y una historia detrás."
-    )
+    with col2:
+        st.subheader('Características', divider="red")
+        st.markdown('*Comodidad*: Excelente amortiguación gracias a la unidad Air en el talón, proporcionando comodidad para uso diario')
+        st.markdown("*Talles*: Disponibles en una amplia gama de talles para hombres, mujeres y niños")
+        st.markdown('*Colores*: Variedad de :rainbow[colores] y ediciones limitadas, desde el clásico blanco y negro hasta combinaciones de colores vibrantes y colaboraciones con artistas')
+        st.markdown('*Uso*: Perfectas para el uso diario, moda urbana y casual')
+        st.markdown('*Perfil del Usuario*: Ideal para jóvenes y adultos que buscan un estilo casual y moderno, amantes de la moda urbana y coleccionistas de zapatillas')
+    
+    st.container(border=False, height=20)
 
-with st.container(border=True):
-    mostrar_contenido(
-        "Cleats",
-        "Cleats2.jpg",
-        "https://www.nike.com.ar/nike/hombre/calzado/botines?map=category-1,category-2,category-3,tipo-de-producto",
-        "Las Nike Cleats están diseñadas para ofrecer el mejor rendimiento en deportes como el fútbol, béisbol y fútbol americano. Son conocidas por su tracción y durabilidad en terrenos específicos."
-    )
 
-with st.container(border=True):
-    mostrar_contenido(
-        "Dunks",
-        "Dunks.jpg",
-        "https://www.nike.com.ar/nike/hombre/calzado/dunk?map=category-1,category-2,category-3,icono",
-        "Las Nike Dunks nacieron en los años 80 como zapatillas de baloncesto, pero rápidamente se convirtieron en un ícono del skateboard y la moda urbana."
-    )
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image("AirForcesT4.jpeg")
+    with col2:
+        st.image("AirForcesT5.png")
 
+#TABS AIRMAXES
+with tabs[1]:
+    st.markdown('<h2 class="centered-header">Air Maxes</h2', unsafe_allow_html=True)
+    st.markdown('<p class="centered-header">Conocidas por su estilo y comodidad, ideales para el uso diario</p>', unsafe_allow_html=True)
+   
+    col1, col2, col3= st.columns([1.4,1,1.4])
+    with col1:
+        st.container(border = False)
+    with col2: 
+        st.link_button('Comprar este modelo', 'https://www.nike.com.ar/air%20max?_q=air%20max&map=ft', type='primary')
+    with col3: 
+        st.container(border = False)
+    
+    st.container(height=20, border=False)
+    
+    video_file = open('AirMaxes.mp4', 'rb')
+    video_bytes = video_file.read()
+    st.video(video_bytes)
+    
+    st.container(border=False, height=20)
+
+    col1, col2 = st.columns([1.5,2])
+    with col1:
+        st.image("AirMaxesT1.jpg")
+
+    with col2:
+        st.subheader('Características', divider="red")
+        st.markdown('*Comodidad*: Excelente amortiguación y soporte gracias a la unidad Air Max, ideales para largas caminatas y uso diario')
+        st.markdown("*Talles*: Disponibles en talles para toda la familia")
+        st.markdown('*Colores*: mplia gama de colores y estilos, desde tonos neutros hasta combinaciones audaces')
+        st.markdown('*Uso*: Perfectas para el uso diario, running y actividades físicas ligeras')
+        st.markdown('*Perfil del Usuario*: Adecuadas para personas activas que valoran la comodidad y el estilo deportivo, tanto jóvenes como adultos')
+    
+    st.container(border=False, height=20)
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image("AirMaxesT2.jpeg")
+    with col2:
+        st.image("AirMaxesT3.png")
+
+#TABS JORDANS
+with tabs[2]:
+    st.markdown('<h2 class="centered-header">Air Jordans</h2', unsafe_allow_html=True)
+    st.markdown('<p class="centered-header">Ícono de estilo y rendimiento, elevando cada paso</p>', unsafe_allow_html=True)
+   
+    col1, col2, col3= st.columns([1.4,1,1.4])
+    with col1:
+        st.container(border = False)
+    with col2: 
+        st.link_button('Comprar este modelo', 'https://www.nike.com.ar/nike/air-jordan-1?map=category-1,icono', type='primary')
+    with col3: 
+        st.container(border = False)
+    
+    st.container(height=20, border=False)
+    
+    video_file = open('Jordans.mp4', 'rb')
+    video_bytes = video_file.read()
+    st.video(video_bytes)
+    
+    st.container(border=False, height=20)
+
+    col1, col2 = st.columns([1.5,2])
+    with col1:
+        st.image("JordansT1.jpg")
+
+    with col2:
+        st.subheader('Características', divider="red")
+        st.markdown('*Comodidad*: Diseñadas para ofrecer soporte y comodidad durante el juego de baloncesto, con tecnología de amortiguación avanzada')
+        st.markdown("*Talles*: Disponibles en talles para hombres, mujeres y niños")
+        st.markdown('*Colores*: Diversidad de colores y ediciones limitadas, con combinaciones que suelen contar con la participación del propio Michael Jordan')
+        st.markdown('*Uso*: Originalmente para baloncesto, ahora también usadas como zapatillas de moda')
+        st.markdown('*Perfil del Usuario*: Apreciadas por jugadores de baloncesto, coleccionistas y aficionados a la moda deportiva')
+    
+    st.container(border=False, height=20)
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image("JordansT2.jpg")
+    with col2:
+        st.image("JordansT3.jpg")
+
+#TABS CLEATS
+with tabs[3]:
+    st.markdown('<h2 class="centered-header">Cleats</h2', unsafe_allow_html=True)
+    st.markdown('<p class="centered-header">Diseñados para dominar el campo, combina velocidad y control</p>', unsafe_allow_html=True)
+   
+    col1, col2, col3= st.columns([1.4,1,1.4])
+    with col1:
+        st.container(border = False)
+    with col2: 
+        st.link_button('Comprar este modelo', 'https://www.nike.com.ar/nike/hombre/calzado/botines?map=category-1,category-2,category-3,tipo-de-producto', type='primary')
+    with col3: 
+        st.container(border = False)
+    
+    st.container(height=20, border=False)
+    
+    video_file = open('Cleats.mp4', 'rb')
+    video_bytes = video_file.read()
+    st.video(video_bytes)
+    
+    st.container(border=False, height=20)
+
+    col1, col2 = st.columns([1.5,2])
+    with col1:
+        st.image("CleatsT1.jpg")
+
+    with col2:
+        st.subheader('Características', divider="red")
+        st.markdown('*Comodidad*: Sujeción firme y diseño anatómico para un ajuste perfecto, con tecnologías que proporcionan estabilidad y comodidad durante el juego')
+        st.markdown("*Talles*: Disponibles en talles para hombres, mujeres y niños")
+        st.markdown('*Colores*: Variedad de colores adaptados a los equipos y gustos personales')
+        st.markdown('*Uso*: Específicas para deportes de campo como fútbol, béisbol y fútbol americano')
+        st.markdown('*Perfil del Usuario*: Deportistas que practican deportes de campo y buscan rendimiento, durabilidad y soporte en su calzado')
+    
+    st.container(border=False, height=20)
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image("CleatsT2.jpg")
+    with col2:
+        st.image("CleatsT3.jpg")
+
+
+#TABS DUNKS
+with tabs[4]:
+    st.markdown('<h2 class="centered-header">Dunks</h2', unsafe_allow_html=True)
+    st.markdown('<p class="centered-header">Versatilidad y estilo urbano, redefiniendo cada paso</p>', unsafe_allow_html=True)
+   
+    col1, col2, col3= st.columns([1.4,1,1.4])
+    with col1:
+        st.container(border = False)
+    with col2: 
+        st.link_button('Comprar este modelo', 'https://www.nike.com.ar/nike/hombre/calzado/dunk?map=category-1,category-2,category-3,icono', type='primary')
+    with col3: 
+        st.container(border = False)
+    
+    st.container(height=20, border=False)
+    
+    video_file = open('Dunks.mp4', 'rb')
+    video_bytes = video_file.read()
+    st.video(video_bytes)
+    
+    st.container(border=False, height=20)
+
+    col1, col2 = st.columns([1.5,2])
+    with col1:
+        st.image("DunksT1.jpg")
+
+    with col2:
+        st.subheader('Características', divider="red")
+        st.markdown('*Comodidad*: Suela acolchada y estructura resistente, diseñada inicialmente para el baloncesto y adaptada para el skateboard')
+        st.markdown("*Talles*: Disponibles en una amplia variedad de talles para hombres y mujeres")
+        st.markdown('*Colores*: Gama extensa de colores y ediciones especiales, con colaboraciones frecuentes que añaden valor coleccionable')
+        st.markdown('*Uso*: Popular en el skateboard, moda urbana y uso casual')
+        st.markdown('*Perfil del Usuario*: Skaters, entusiastas de la moda urbana y coleccionistas de zapatillas exclusivas')
+    
+    st.container(border=False, height=20)
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image("DunksT2.jpeg")
+    with col2:
+        st.image("DunksT3.jpeg")
+
+# Crear un contenedor dentro de la barra lateral
+with st.sidebar:
+    container = st.container()
+    with container:
+        st.header("Formulario de Contacto")
+        st.write("Dejanos tu consulta y un asesor se pondrá en contacto contigo.")
+        
+        # Campos del formulario
+        nombre = st.text_input("Nombre")
+        email = st.text_input("Correo Electrónico")
+        mensaje = st.text_area("Mensaje")
+        
+        # Botón de envío
+        if st.button("Enviar"):
+            st.success("¡Gracias por tu mensaje! Un asesor se pondrá en contacto contigo pronto.")
 
 with st.sidebar:
-    st.container(height=30, border=False)
-
-    recommendations = {
-    "0 Air Forces": ('Comprar este modelo', 'https://www.nike.com.ar/air%201%20force?_q=air%201%20force&map=ft'),
-    "1 Air Jordans": ('Comprar este modelo', 'https://www.nike.com.ar/nike/air-jordan-1?map=category-1,icono'),
-    "2 Air Maxes": ('Comprar este modelo', 'https://www.nike.com.ar/air%20max?_q=air%20max&map=ft'),
-    "3 Cleats": ('Comprar este modelo', 'https://www.nike.com.ar/nike/hombre/calzado/botines?map=category-1,category-2,category-3,tipo-de-producto'),
-    "4 Dunks": ('Comprar este modelo', 'https://www.nike.com.ar/nike/hombre/calzado/dunk?map=category-1,category-2,category-3,icono')
-}
+    messages = st.container(height=300)
+    if prompt := st.chat_input("Say something"):
+        messages.chat_message("user").write(prompt)
+        messages.chat_message("assistant").write(f"Echo: {prompt}")
