@@ -195,7 +195,7 @@ if img_to_process is not None:
                 # Mostrar recomendación basada en la clase
                 recommendation = recommendations.get(label.strip(), "No hay recomendación disponible para esta clase.")
                 if recommendation:
-                    st.markdown(f'<a href="{recommendation[1]}" target="_blank"><button class= "styled-button">{recommendation[0]}</button></a>', unsafe_allow_html=True)
+                    st.markdown(f'<a href="{recommendation[1]}" target="_blank"><button class= "styled-button">{recommendation[0]}</button></a> /n <p> hola <p>', unsafe_allow_html=True)
 
                     
 # Estilos CSS
@@ -226,7 +226,7 @@ st.container(height=30, border=False)
 
 video_file = open('NikeComercial.mp4', 'rb')
 video_bytes = video_file.read()
-st.video(video_bytes, start_time=0)                
+st.video(video_bytes, start_time=0, subtitles=None, end_time=None, loop=True, autoplay=True, muted=True)     
 
 # Título de la aplicación
 st.title('Mapa de Tiendas Nike en Argentina')
