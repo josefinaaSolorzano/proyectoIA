@@ -195,7 +195,7 @@ if img_to_process is not None:
                 # Mostrar recomendación basada en la clase
                 recommendation = recommendations.get(label.strip(), "No hay recomendación disponible para esta clase.")
                 if recommendation:
-                    st.markdown(f'<a href="{recommendation[1]}" target="_blank"><button class= "styled-button">{recommendation[0]}</button></a> /n <p> hola <p>', unsafe_allow_html=True)
+                    st.markdown(f'<a href="{recommendation[1]}" target="_blank"><button class= "styled-button">{recommendation[0]}</button></a>  <p> Hacé click en Our SoleMates y conocé más sobre este modelo <p>', unsafe_allow_html=True)
 
                     
 # Estilos CSS
