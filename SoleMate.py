@@ -226,7 +226,7 @@ st.container(height=30, border=False)
 
 video_file = open('NikeComercial.mp4', 'rb')
 video_bytes = video_file.read()
-st.video(video_bytes, start_time=0, loop=True, autoplay=True, muted=True)     
+st.video(video_bytes)     
 
 # Título de la aplicación
 st.title('Mapa de Tiendas Nike en Argentina')
