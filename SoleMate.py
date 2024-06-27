@@ -136,7 +136,7 @@ with col2:
 
 st.container(height=30, border=False)
 
-container = st.container(border="red")
+container = st.container(border=True)
 with container:
     st.header("¿Cómo funciona?")
     st.markdown("**Paso 1:** Hacé click en 'Selecciona una opción' y elegí la metodología que te resulte más conveniente")
