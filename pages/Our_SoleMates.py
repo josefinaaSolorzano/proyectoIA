@@ -94,7 +94,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title('¿Ya tenes tu par?')
+st.title('¿Ya tenés tu par?')
 st.subheader('Hacé click en los modelos para encontrar tu SoleMate')
 
 # Crear pestañas para mostrar el contenido
@@ -130,7 +130,7 @@ with tabs[0]:
         st.subheader('Características', divider="red")
         st.markdown('*Comodidad*: Excelente amortiguación gracias a la unidad Air en el talón, proporcionando comodidad para uso diario')
         st.markdown("*Talles*: Disponibles en una amplia gama de talles para hombres, mujeres y niños")
-        st.markdown('*Colores*: Variedad de :rainbow[colores] y ediciones limitadas, desde el clásico blanco y negro hasta combinaciones de colores vibrantes y colaboraciones con artistas')
+        st.markdown('*Colores*: Variedad de colores y ediciones limitadas, desde el clásico blanco y negro hasta combinaciones de colores vibrantes y colaboraciones con artistas')
         st.markdown('*Uso*: Perfectas para el uso diario, moda urbana y casual')
         st.markdown('*Perfil del Usuario*: Ideal para jóvenes y adultos que buscan un estilo casual y moderno, amantes de la moda urbana y coleccionistas de zapatillas')
     

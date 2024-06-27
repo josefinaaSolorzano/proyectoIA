@@ -140,7 +140,7 @@ container = st.container(border=True)
 with container:
     st.header("¿Cómo funciona?")
     st.markdown("**Paso 1:** Hacé click en 'Selecciona una opción' y elegí la metodología que te resulte más conveniente")
-    st.markdown("**Paso 2:** Cargá o sacá una foto del modelo de zapatillas que estas buscando o uno similar")
+    st.markdown("**Paso 2:** Cargá o sacá una foto del modelo de zapatillas que estás buscando o uno similar")
     st.markdown("**Paso 3:** Una vez cargada la imagen hacé click en el botón 'Just do it!' y dejanos encontrar tu par ideal")
     st.markdown("**Paso 4:** Para comprar hacé click en el botón de 'Compra este modelo'. Para conocer más hacé click en Our SoleMates en la barra izquierda de la página")
 
@@ -295,7 +295,7 @@ for index, row in df_filtrado.iterrows():
 with st.sidebar:
     st.container(height=20, border=False)
 
-st.sidebar.subheader('Regístrate para recibir ofertas exclusivas')
+st.sidebar.subheader('Registrate para recibir ofertas exclusivas')
 email = st.sidebar.text_input('Correo electrónico')
 if st.sidebar.button('Registrarse'):
     # Guardar el correo electrónico en una base de datos o enviar a una lista de correo
