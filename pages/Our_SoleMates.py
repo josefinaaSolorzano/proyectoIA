@@ -141,7 +141,7 @@ with tabs[0]:
     with col1:
         st.image("AirForcesT4.jpeg")
     with col2:
-        st.image("AirForcesT5.png")
+        st.image("AirForcesT5.jpeg")
 
 #TABS AIRMAXES
 with tabs[1]:
